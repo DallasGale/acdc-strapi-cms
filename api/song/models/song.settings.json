@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "songs",
+  "info": {
+    "name": "song"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "writer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ownership.writer"
+    }
+  }
+}

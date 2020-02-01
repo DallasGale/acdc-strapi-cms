@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "albums",
+  "info": {
+    "name": "album"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "europeanReleaseDate": {
+      "type": "date"
+    },
+    "australianReleaseDate": {
+      "type": "date"
+    },
+    "songs": {
+      "collection": "song"
+    }
+  }
+}
