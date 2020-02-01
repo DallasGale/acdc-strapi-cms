@@ -20,6 +20,46 @@
     },
     "songs": {
       "collection": "song"
+    },
+    "isStudioRecording": {
+      "type": "boolean",
+      "default": false
+    },
+    "isLiveRecording": {
+      "type": "boolean",
+      "default": false
+    },
+    "isInternationalVersion": {
+      "type": "boolean",
+      "default": false
+    },
+    "isAustralianVersion": {
+      "type": "boolean",
+      "default": false
+    },
+    "isCompilation": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSoundtrack": {
+      "type": "boolean",
+      "default": false
+    },
+    "coverArt": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "sideA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "long-play-format.side-a"
+    },
+    "sideB": {
+      "type": "component",
+      "repeatable": true,
+      "component": "long-play-format.side-a"
     }
   }
 }

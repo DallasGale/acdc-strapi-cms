@@ -16,6 +16,12 @@
       "type": "component",
       "repeatable": true,
       "component": "ownership.writer"
+    },
+    "length": {
+      "type": "string",
+      "default": "HH:MM:SS:ZZZ",
+      "minLength": 12,
+      "maxLength": 12
     }
   }
 }
