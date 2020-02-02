@@ -12,16 +12,14 @@
     "title": {
       "type": "string"
     },
-    "writer": {
-      "type": "component",
-      "repeatable": true,
-      "component": "ownership.writer"
-    },
     "length": {
       "type": "string",
-      "default": "HH:MM:SS:ZZZ",
+      "default": "00:MM:SS:000",
       "minLength": 12,
       "maxLength": 12
+    },
+    "writtenBy": {
+      "type": "json"
     }
   }
 }
