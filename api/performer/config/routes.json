@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/albums",
-      "handler": "album.find",
+      "path": "/performers",
+      "handler": "performer.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/albums/count",
-      "handler": "album.count",
+      "path": "/performers/count",
+      "handler": "performer.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/albums/:id",
-      "handler": "album.findOne",
+      "path": "/performers/:id",
+      "handler": "performer.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/albums",
-      "handler": "album.create",
+      "path": "/performers",
+      "handler": "performer.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/albums/:id",
-      "handler": "album.update",
+      "path": "/performers/:id",
+      "handler": "performer.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/albums/:id",
-      "handler": "album.delete",
+      "path": "/performers/:id",
+      "handler": "performer.delete",
       "config": {
         "policies": []
       }

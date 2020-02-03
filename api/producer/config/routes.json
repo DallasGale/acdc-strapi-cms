@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/albums",
-      "handler": "album.find",
+      "path": "/producers",
+      "handler": "producer.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/albums/count",
-      "handler": "album.count",
+      "path": "/producers/count",
+      "handler": "producer.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/albums/:id",
-      "handler": "album.findOne",
+      "path": "/producers/:id",
+      "handler": "producer.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/albums",
-      "handler": "album.create",
+      "path": "/producers",
+      "handler": "producer.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/albums/:id",
-      "handler": "album.update",
+      "path": "/producers/:id",
+      "handler": "producer.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/albums/:id",
-      "handler": "album.delete",
+      "path": "/producers/:id",
+      "handler": "producer.delete",
       "config": {
         "policies": []
       }
