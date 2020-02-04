@@ -18,8 +18,15 @@
       "minLength": 12,
       "maxLength": 12
     },
-    "writtenBy": {
+    "writingCredits": {
       "type": "json"
+    },
+    "single": {
+      "type": "boolean",
+      "default": false
+    },
+    "singleReleaseDate": {
+      "type": "date"
     }
   }
 }

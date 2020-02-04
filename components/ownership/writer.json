@@ -7,6 +7,9 @@
   },
   "options": {},
   "attributes": {
+    "writers": {
+      "collection": "writer"
+    },
     "Name": {
       "type": "string"
     }

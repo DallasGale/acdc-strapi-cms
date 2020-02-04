@@ -58,9 +58,6 @@
       "repeatable": true,
       "component": "long-play-format.side-a"
     },
-    "songs": {
-      "collection": "song"
-    },
     "worldwideReleaseDate": {
       "type": "date"
     },
@@ -69,6 +66,16 @@
     },
     "performers": {
       "collection": "performer"
+    },
+    "charts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certifications.peak-chart-position"
+    },
+    "certified": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certifications.certified"
     }
   }
 }

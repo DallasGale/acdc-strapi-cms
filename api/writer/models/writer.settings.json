@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "performers",
+  "collectionName": "writers",
   "info": {
-    "name": "performer"
+    "name": "writer"
   },
   "options": {
     "increments": true,
@@ -10,9 +10,6 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
-    },
-    "performed": {
       "type": "string"
     }
   }

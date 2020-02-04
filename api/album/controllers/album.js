@@ -1,10 +1,10 @@
 "use strict";
-
 /**
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
 const { sanitizeEntity } = require("strapi-utils");
+const helpers = require("../../_helpers");
 
 module.exports = {
   /**
@@ -25,6 +25,7 @@ module.exports = {
       entities = await strapi.services.album.find({
         _sort: "id:asc"
       });
+      // console.log("entities", entities[0].sideA[0]);
     }
 
     // ? Build up the response...
@@ -137,30 +138,20 @@ module.exports = {
     // }
 
     let API_OUTPUT = [];
-    let ALBUM_LENGTH = [];
 
+    // console.time("for");
     for (let i = 0; i < entities.length; i++) {
       // * Songs...
       // ? Remove ID's from songs (A)...
-      entities[i].sideA[0].songs.map(song => {
-        delete song.id;
-      });
-      entities[i].sideB[0].songs.map(song => {
-        delete song.id;
-      });
-
-      entities[i].performers.map(performer => {
-        delete performer.id;
-      });
-
-      entities[i].producers.map(producer => {
-        delete producer.id;
-      });
+      helpers.deleteId(entities[i].sideA[0].songs);
+      helpers.deleteId(entities[i].sideB[0].songs);
+      helpers.deleteId(entities[i].producers);
+      helpers.deleteId(entities[i].performers);
+      helpers.deleteId(entities[i].charts);
+      helpers.deleteId(entities[i].certified);
 
       const TRACK_COUNT =
         entities[i].sideA[0].songs.length + entities[i].sideB[0].songs.length;
-
-      // const MUSICIANS = entities[i].musicians.map(i => i.name));
 
       API_OUTPUT.push({
         title: entities[i].title,
@@ -172,13 +163,31 @@ module.exports = {
         isLiveRecording: entities[i].isLiveRecording,
         musicians: entities[i].performers,
         producers: entities[i].producers,
-        songs: {
+        industryCharts: entities[i].charts,
+        certifications: entities[i].certified,
+        trackListing: {
           sideA: entities[i].sideA[0].songs,
           sideB: entities[i].sideB[0].songs
+        },
+        artwork: {
+          front: {
+            artist: "tbc",
+            format: entities[i].coverArt.ext,
+            size: entities[i].coverArt.size,
+            url: entities[i].coverArt.url
+          },
+          back: {
+            artist: "tbc",
+            format: entities[i].coverArt.ext,
+            size: entities[i].coverArt.size,
+            url: entities[i].coverArt.url
+          }
         }
       });
     }
-
+    // console.timeEnd("for");
+    console.log("entities", entities[0]);
+    // console.log("API_OUTPUT", API_OUTPUT);
     return API_OUTPUT.map(entity => {
       console.log("entity", entity);
       return sanitizeEntity(entity, { model: strapi.models.album });
