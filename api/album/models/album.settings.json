@@ -48,16 +48,6 @@
       "plugin": "upload",
       "required": false
     },
-    "sideA": {
-      "type": "component",
-      "repeatable": true,
-      "component": "long-play-format.side-a"
-    },
-    "sideB": {
-      "type": "component",
-      "repeatable": true,
-      "component": "long-play-format.side-a"
-    },
     "worldwideReleaseDate": {
       "type": "date"
     },
