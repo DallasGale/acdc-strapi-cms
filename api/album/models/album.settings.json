@@ -71,11 +71,6 @@
       "type": "component",
       "repeatable": true,
       "component": "certifications.peak-chart-position"
-    },
-    "certified": {
-      "type": "component",
-      "repeatable": true,
-      "component": "certifications.certified"
     }
   }
 }
