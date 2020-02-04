@@ -163,7 +163,7 @@ module.exports = {
         isLiveRecording: entities[i].isLiveRecording,
         musicians: entities[i].performers,
         producers: entities[i].producers,
-        industryCharts: entities[i].charts,
+        // industryCharts: entities[i].charts,
         // certifications: entities[i].certified,
         trackListing: {
           sideA: entities[i].sideA[0].songs,

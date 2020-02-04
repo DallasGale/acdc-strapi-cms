@@ -66,11 +66,6 @@
     },
     "performers": {
       "collection": "performer"
-    },
-    "charts": {
-      "type": "component",
-      "repeatable": true,
-      "component": "certifications.peak-chart-position"
     }
   }
 }
