@@ -1,0 +1,17 @@
+{
+  "connection": "default",
+  "collectionName": "components_ownership_writers",
+  "info": {
+    "name": "writer",
+    "icon": "angry"
+  },
+  "options": {},
+  "attributes": {
+    "writers": {
+      "collection": "writer"
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}

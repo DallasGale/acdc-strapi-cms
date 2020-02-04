@@ -4,7 +4,13 @@
  * to customize this controller
  */
 const { sanitizeEntity } = require("strapi-utils");
-const helpers = require("../../_helpers");
+// const helpers = require("../../_helpers");
+
+function deleteId(array) {
+  array.map(arr => {
+    delete arr.id;
+  });
+}
 
 module.exports = {
   /**
@@ -143,12 +149,12 @@ module.exports = {
     for (let i = 0; i < entities.length; i++) {
       // * Songs...
       // ? Remove ID's from songs (A)...
-      helpers.deleteId(entities[i].sideA[0].songs);
-      helpers.deleteId(entities[i].sideB[0].songs);
-      helpers.deleteId(entities[i].producers);
-      helpers.deleteId(entities[i].performers);
-      helpers.deleteId(entities[i].charts);
-      helpers.deleteId(entities[i].certified);
+      // deleteId(entities[i].sideA[0].songs);
+      // deleteId(entities[i].sideB[0].songs);
+      // deleteId(entities[i].producers);
+      // deleteId(entities[i].performers);
+      // deleteId(entities[i].charts);
+      // deleteId(entities[i].certified);
 
       const TRACK_COUNT =
         entities[i].sideA[0].songs.length + entities[i].sideB[0].songs.length;
@@ -163,8 +169,8 @@ module.exports = {
         isLiveRecording: entities[i].isLiveRecording,
         musicians: entities[i].performers,
         producers: entities[i].producers,
-        // industryCharts: entities[i].charts,
-        // certifications: entities[i].certified,
+        industryCharts: entities[i].charts,
+        certifications: entities[i].certified,
         trackListing: {
           sideA: entities[i].sideA[0].songs,
           sideB: entities[i].sideB[0].songs
@@ -186,7 +192,7 @@ module.exports = {
       });
     }
     // console.timeEnd("for");
-    console.log("entities", entities[0]);
+    console.log("entities", entities);
     // console.log("API_OUTPUT", API_OUTPUT);
     return API_OUTPUT.map(entity => {
       console.log("entity", entity);
