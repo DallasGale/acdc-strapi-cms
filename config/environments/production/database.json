@@ -5,11 +5,11 @@
       "connector": "bookshelf",
       "settings": {
         "client": "postgres",
-        "host": "${process.env.DATABASE_HOST}",
-        "port": "${process.env.DATABASE_PORT}",
-        "database": "${process.env.DATABASE_NAME}",
-        "username": "${process.env.DATABASE_USERNAME}",
-        "password": "${process.env.DATABASE_PASSWORD}",
+        "host": "ec2-54-80-184-43.compute-1.amazonaws.com",
+        "port": "5432",
+        "database": "d3v1i0fo2ia2in",
+        "username": "spaoyrgfcnxyur",
+        "password": "7c1aba40fa91b98200c223fe18b5e4cc722291ee8477e8b17a2a516c016128ae",
         "ssl": true
       },
       "options": {}
