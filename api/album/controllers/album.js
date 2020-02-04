@@ -164,7 +164,7 @@ module.exports = {
         musicians: entities[i].performers,
         producers: entities[i].producers,
         industryCharts: entities[i].charts,
-        certifications: entities[i].certified,
+        // certifications: entities[i].certified,
         trackListing: {
           sideA: entities[i].sideA[0].songs,
           sideB: entities[i].sideB[0].songs
