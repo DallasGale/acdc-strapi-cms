@@ -17,6 +17,9 @@
     },
     "songs": {
       "collection": "song"
+    },
+    "albums": {
+      "collection": "album"
     }
   }
 }
