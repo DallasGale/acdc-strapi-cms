@@ -42,12 +42,6 @@
       "type": "boolean",
       "default": false
     },
-    "coverArt": {
-      "model": "file",
-      "via": "related",
-      "plugin": "upload",
-      "required": false
-    },
     "sideA": {
       "type": "component",
       "repeatable": true,
@@ -66,6 +60,22 @@
     },
     "performers": {
       "collection": "performer"
+    },
+    "charts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certified.peak-chart-position"
+    },
+    "units": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certified.units"
+    },
+    "coverArt": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

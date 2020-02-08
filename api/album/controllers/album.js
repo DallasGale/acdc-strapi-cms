@@ -4,7 +4,6 @@
  * to customize this controller
  */
 const { sanitizeEntity } = require("strapi-utils");
-// const helpers = require("../../_helpers");
 
 function deleteId(array) {
   array.map(arr => {
@@ -31,8 +30,30 @@ module.exports = {
       entities = await strapi.services.album.find({
         _sort: "id:asc"
       });
-      // console.log("entities", entities[0].sideA[0]);
     }
+
+    let title = ""; // entities[i].title,
+    let trackCount = 0; // trackCount: TRACK_COUNT,
+    let worldwideReleaseDate = ""; //entities[i].worldwideReleaseDate,
+    let europeanReleaseDate = ""; //  entities[i].europeanReleaseDate,
+    let australianReleaseDate = ""; //  entities[i].australianReleaseDate,
+    let isStudioRecording = false; //  entities[i].isStudioRecording,
+    let isLiveRecording = false; // entities[i].isLiveRecording,
+    let musicians = []; //  entities[i].performers,
+    let producers = []; //  entities[i].producers,
+    let industryCharts = []; //  entities[i].charts,
+    let unitsMoved = []; // entities[i].certified,
+    let sideA = []; // entities[i].sideA[0].songs,
+    let sideB = []; // entities[i].sideB[0].songs
+    let artwork = {
+      size: null,
+      format: null,
+      url: null
+    };
+    // let artist = "tbc";
+    // let format = ""; // entities[i].coverArt.ext,
+    // let size = 0; // entities[i].coverArt.size,
+    // let url = ""; // entities[i].coverArt.url
 
     // ? Build up the response...
     // -- "title": "High Voltage (1975)",
@@ -126,76 +147,137 @@ module.exports = {
     // -- }
     // },
 
-    // let response = [
-    //   {
-    //     title: "",
-    //     songs: [{}]
-    //   }
-    // ];
-    // let sideA = [];
-
-    // if (entities[0].sideA.length > 0) {
-    //   const sideA = entities[0].sideA[0].songs;
-    //   response[0].songs.push(sideA);
-    // }
-    // if (entities[0].sideB.length > 0) {
-    //   const sideB = entities[0].sideB[0].songs;
-    //   response[0].songs.push(sideB);
-    // }
-
     let API_OUTPUT = [];
 
-    // console.time("for");
     for (let i = 0; i < entities.length; i++) {
-      // * Songs...
-      // ? Remove ID's from songs (A)...
-      // deleteId(entities[i].sideA[0].songs);
-      // deleteId(entities[i].sideB[0].songs);
-      // deleteId(entities[i].producers);
-      // deleteId(entities[i].performers);
-      // deleteId(entities[i].charts);
-      // deleteId(entities[i].certified);
+      // * Title...
+      if (
+        entities[i].title !== null ||
+        typeof entities[i].title !== "undefined"
+      ) {
+        title = entities[i].title;
+      }
 
-      const TRACK_COUNT =
-        entities[i].sideA[0].songs.length + entities[i].sideB[0].songs.length;
+      // * Worldwide Release...
+      if (
+        entities[i].worldwideReleaseDate !== null ||
+        typeof entities[i].worldwideReleaseDate !== "undefined"
+      ) {
+        worldwideReleaseDate = entities[i].worldwideReleaseDate;
+      }
+      // * European Release...
+      if (
+        entities[i].europeanReleaseDate !== null ||
+        typeof entities[i].europeanReleaseDate !== "undefined"
+      ) {
+        europeanReleaseDate = entities[i].europeanReleaseDate;
+      }
+      // * Australia Release...
+      if (
+        entities[i].australianReleaseDate !== null ||
+        typeof entities[i].australianReleaseDate !== "undefined"
+      ) {
+        australianReleaseDate = entities[i].australianReleaseDate;
+      }
+
+      // * Studio Recording...
+      if (
+        entities[i].isStudioRecording !== null ||
+        typeof entities[i].isStudioRecording !== "undefined"
+      ) {
+        isStudioRecording = entities[i].isStudioRecording;
+      }
+
+      // * Live Recording...
+      if (
+        entities[i].isLiveRecording !== null ||
+        typeof entities[i].isLiveRecording !== "undefined"
+      ) {
+        isLiveRecording = entities[i].isLiveRecording;
+      }
+
+      // * Musicians...
+      if (
+        entities[i].performers !== null ||
+        typeof entities[i].performers !== "undefined"
+      ) {
+        deleteId(entities[i].performers);
+        musicians = entities[i].performers;
+      }
+      // * Producers...
+      if (
+        entities[i].producers !== null ||
+        typeof entities[i].producers !== "undefined"
+      ) {
+        deleteId(entities[i].producers);
+        producers = entities[i].producers;
+      }
+      // * Charts...
+      if (entities[i].charts !== null) {
+        deleteId(entities[i].charts);
+        industryCharts = entities[i].charts;
+      }
+      // * Certification...
+      if (entities[i].units !== null) {
+        deleteId(entities[i].units);
+        unitsMoved = entities[i].units;
+      }
+      // * Track Count...
+      if (entities[i].sideA.length) {
+        deleteId(entities[i].sideA[0].songs);
+        sideA = entities[i].sideA[0].songs;
+        trackCount = entities[i].sideA[0].songs.length;
+      } else {
+        sideA = [];
+        trackCount = 0;
+      }
+
+      if (entities[i].sideB.length !== 0) {
+        deleteId(entities[i].sideB[0].songs);
+        sideB = entities[i].sideB[0].songs;
+        trackCount += entities[i].sideB[0].songs.length;
+      } else {
+        sideB = [];
+      }
+
+      // * Artwork...
+      if (entities[i].coverArt !== null) {
+        artwork.format = entities[i].coverArt.ext;
+        artwork.url = entities[i].coverArt.url;
+        artwork.size = entities[i].coverArt.size;
+      } else {
+        artwork.format = null;
+        artwork.url = null;
+        artwork.size = null;
+      }
 
       API_OUTPUT.push({
-        title: entities[i].title,
-        trackCount: TRACK_COUNT,
-        worldwideReleaseDate: entities[i].worldwideReleaseDate,
-        europeanReleaseDate: entities[i].europeanReleaseDate,
-        australianReleaseDate: entities[i].australianReleaseDate,
-        isStudioRecording: entities[i].isStudioRecording,
-        isLiveRecording: entities[i].isLiveRecording,
-        musicians: entities[i].performers,
-        producers: entities[i].producers,
-        industryCharts: entities[i].charts,
-        certifications: entities[i].certified,
-        trackListing: {
-          sideA: entities[i].sideA[0].songs,
-          sideB: entities[i].sideB[0].songs
-        },
+        title: title,
+        trackCount: trackCount,
+        worldwideReleaseDate: worldwideReleaseDate,
+        europeanReleaseDate: europeanReleaseDate,
+        australianReleaseDate: australianReleaseDate,
+        isStudioRecording: isStudioRecording,
+        isLiveRecording: isLiveRecording,
+        musicians: musicians,
+        producers: producers,
+        industryCharts: industryCharts,
+        unitsMoved: unitsMoved,
+        sideA: sideA,
+        sideB: sideB,
         artwork: {
-          front: {
-            artist: "tbc",
-            format: entities[i].coverArt.ext,
-            size: entities[i].coverArt.size,
-            url: entities[i].coverArt.url
-          },
-          back: {
-            artist: "tbc",
-            format: entities[i].coverArt.ext,
-            size: entities[i].coverArt.size,
-            url: entities[i].coverArt.url
-          }
+          format: artwork.ext,
+          size: artwork.size,
+          url: artwork.url
         }
       });
     }
     // console.timeEnd("for");
-    console.log("entities", entities);
+    // console.log("RAW", entities);
+    // console.log("MODIFIED", API_OUTPUT);
     // console.log("API_OUTPUT", API_OUTPUT);
     return API_OUTPUT.map(entity => {
-      console.log("entity", entity);
+      // console.log("entity", entity);
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
   }

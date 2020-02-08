@@ -1,0 +1,20 @@
+{
+  "connection": "default",
+  "collectionName": "components_certified_units",
+  "info": {
+    "name": "units",
+    "icon": "baby-carriage"
+  },
+  "options": {},
+  "attributes": {
+    "association": {
+      "type": "string"
+    },
+    "unitsSold": {
+      "type": "string"
+    },
+    "certification": {
+      "type": "string"
+    }
+  }
+}
