@@ -1,0 +1,14 @@
+{
+  "info": {
+    "name": "bSide",
+    "icon": "car-side"
+  },
+  "options": {},
+  "attributes": {
+    "song": {
+      "model": "song"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_single_release_b_sides"
+}

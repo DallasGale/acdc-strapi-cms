@@ -27,6 +27,11 @@
     },
     "singleReleaseDate": {
       "type": "date"
+    },
+    "bSide": {
+      "type": "component",
+      "repeatable": true,
+      "component": "single-release.b-side"
     }
   }
 }
