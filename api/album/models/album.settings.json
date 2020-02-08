@@ -76,6 +76,9 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "coverArtBy": {
+      "type": "string"
     }
   }
 }
