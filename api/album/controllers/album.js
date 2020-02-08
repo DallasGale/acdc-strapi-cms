@@ -25,35 +25,29 @@ module.exports = {
       entities = await strapi.services.album.search(ctx.query);
     } else {
       console.log("finding...");
-      // ? Sorting the JSON response
-      // todo: Sort by release date.
       entities = await strapi.services.album.find({
         _sort: "id:asc"
       });
     }
 
-    let title = ""; // entities[i].title,
-    let trackCount = 0; // trackCount: TRACK_COUNT,
-    let worldwideReleaseDate = ""; //entities[i].worldwideReleaseDate,
-    let europeanReleaseDate = ""; //  entities[i].europeanReleaseDate,
-    let australianReleaseDate = ""; //  entities[i].australianReleaseDate,
-    let isStudioRecording = false; //  entities[i].isStudioRecording,
-    let isLiveRecording = false; // entities[i].isLiveRecording,
-    let musicians = []; //  entities[i].performers,
-    let producers = []; //  entities[i].producers,
-    let industryCharts = []; //  entities[i].charts,
-    let unitsMoved = []; // entities[i].certified,
-    let sideA = []; // entities[i].sideA[0].songs,
-    let sideB = []; // entities[i].sideB[0].songs
+    let title = "";
+    let trackCount = 0;
+    let worldwideReleaseDate = "";
+    let europeanReleaseDate = "";
+    let australianReleaseDate = "";
+    let isStudioRecording = false;
+    let isLiveRecording = false;
+    let musicians = [];
+    let producers = [];
+    let industryCharts = [];
+    let unitsMoved = [];
+    let sideA = [];
+    let sideB = [];
     let artwork = {
       size: null,
       format: null,
       url: null
     };
-    // let artist = "tbc";
-    // let format = ""; // entities[i].coverArt.ext,
-    // let size = 0; // entities[i].coverArt.size,
-    // let url = ""; // entities[i].coverArt.url
 
     // ? Build up the response...
     // -- "title": "High Voltage (1975)",
@@ -272,12 +266,7 @@ module.exports = {
         }
       });
     }
-    // console.timeEnd("for");
-    // console.log("RAW", entities);
-    // console.log("MODIFIED", API_OUTPUT);
-    // console.log("API_OUTPUT", API_OUTPUT);
-    return entities.map(entity => {
-      // console.log("entity", entity);
+    return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
   }
