@@ -15,6 +15,9 @@
     },
     "certification": {
       "type": "string"
+    },
+    "region": {
+      "type": "string"
     }
   }
 }
