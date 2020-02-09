@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "components_artwork_artworks",
+  "info": {
+    "name": "artwork",
+    "icon": "socks"
+  },
+  "options": {},
+  "attributes": {
+    "sourcedFrom": {
+      "type": "string"
+    },
+    "isFrontCover": {
+      "type": "boolean"
+    },
+    "isBackCover": {
+      "type": "boolean"
+    },
+    "isEuropean": {
+      "type": "boolean"
+    },
+    "isAustralian": {
+      "type": "boolean"
+    },
+    "isNorthAmerican": {
+      "type": "boolean"
+    },
+    "designer": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

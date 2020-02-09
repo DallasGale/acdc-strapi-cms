@@ -71,25 +71,18 @@
       "repeatable": true,
       "component": "certified.units"
     },
-    "coverArt": {
-      "model": "file",
-      "via": "related",
-      "plugin": "upload",
-      "required": false
-    },
-    "coverArtBy": {
-      "type": "string"
-    },
     "singles": {
       "type": "component",
       "repeatable": true,
       "component": "single-release.singles"
     },
-    "coverArtSource": {
-      "type": "string"
-    },
     "studios": {
       "collection": "studio"
+    },
+    "coverArt": {
+      "type": "component",
+      "repeatable": true,
+      "component": "artwork.artwork"
     }
   }
 }

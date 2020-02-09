@@ -49,100 +49,10 @@ module.exports = {
       size: null,
       format: null,
       url: null,
-      source: null
+      source: null,
+      version: null, // 'EU', 'US', 'AU' etc,
+      artist: null
     };
-
-    // ? Build up the response...
-    // -- "title": "High Voltage (1975)",
-    // -- "worldwideReleaseDate": "1975-01-01"
-    // -- "europeanReleaseDate": "1975-01-01"
-    // -- "australianReleaseDate": "1975-01-01"
-    // -- "isStudioRecording": true,
-    // -- "isLiveRecording": false,
-    // -- "trackCount": 13 <<<< calculate (reduce?) sideA.length + sideB.length
-    // -- "length": 00:45:00:000 <<<< calculate (reduce?) sideA.song.length + sideB.song.length
-    // -- "songs": {
-    // ----- "sideA": [
-    // -------- {
-    // ---------- "song": "Girls Got Rhythm",
-    // ---------- "length": '00:04:00:000,
-    // ---------- "writtenBy": [
-    // ------------- {
-    // --------------- "name": "Angus Young"
-    // ------------- },
-    // ------------- {
-    // --------------- "name": "Malcolm Young"
-    // ------------- },
-    // ------------- {
-    // --------------- "name": "Bon Scott"
-    // ------------- }
-    // ---------- ]
-    // ---- }]
-    // ----- "sideB": [
-    // -------- {
-    // ---------- "song": "Girls Got Rhythm",
-    // ---------- "length": '00:04:00:000,
-    // ---------- "writtenBy": [
-    // ------------- {
-    // --------------- "name": "Angus Young"
-    // ------------- },
-    // ------------- {
-    // --------------- "name": "Malcolm Young"
-    // ------------- },
-    // ------------- {
-    // --------------- "name": "Bon Scott"
-    // ------------- }
-    // ---------- ]
-    // ---- }
-    // -- ]
-    // -- "performers": [
-    // ----- {
-    // -------- "name": "Angus Young",
-    // -------- "performed": "lead guitar"
-    // ----- },
-    // ----- {
-    // -------- "name": "Malcllm Young",
-    // -------- "performed": "rhythm guitar"
-    // ----- },
-    // -- ]
-    // -- "producers": [
-    // ----- {
-    // -------- "name": "Harry Vanda"
-    // ----- },
-    // ----- {
-    // -------- "name": "George Young"
-    // ----- }
-    // -- ]
-    // -- "labels": [
-    // ----- {
-    // -------- "Name": "Albert Productions",
-    // ----- },
-    // ----- {
-    // -------- "Name": "Atlantic Records"
-    // ----- }
-    // -- ],
-    // -- "peakChartPosition": [
-    // ----- {
-    // -------- "region": "AUS",
-    // -------- "position": 13,
-    // -------- "association": "APRA"
-    // ----- }
-    // -- ],,
-    // --  "certifications": [
-    // ----- {
-    // -------- "region": "AUS",
-    // -------- "certifcation": "Gold",
-    // -------- "unitsSolde": 5000000,
-    // -------- "association": "APRA"
-    // ----- }
-    // -- ],
-    // -- "coverArt": {
-    // ----- "url": "/uploads/cd2121ee7700437ca7973539fc88765a.jpg"
-    // ----- "ext": ".jpg",
-    // ----- "mime": "image/jpeg",
-    // ----- "size": 86.88,
-    // -- }
-    // },
 
     let API_OUTPUT = [];
 
@@ -259,26 +169,37 @@ module.exports = {
         singles = [];
       }
 
-      // * Artwork...
-      if (entities[i].coverArt !== null) {
-        artwork.format = entities[i].coverArt.ext;
-        artwork.url = entities[i].coverArt.url;
-        artwork.size = entities[i].coverArt.size;
+      // * Artwork image...
+      if (typeof entities[i].coverArt.image !== "undefined") {
+        console.log("entities[i].coverArt.image", entities[i].coverArt.image);
+
+        artwork.format = entities[i].coverArt.image.ext;
+        artwork.url = entities[i].coverArt.image.url;
+        artwork.size = entities[i].coverArt.image.size;
       } else {
         artwork.format = null;
         artwork.url = null;
         artwork.size = null;
       }
-      // * Artwork source...
-      if (entities[i].coverArtSource !== null) {
-        artwork.source = entities[i].coverArtSource;
+
+      // * Artwork details...
+      if (entities[i].coverArt.length) {
+        if (entities[i].coverArt.isEuropean) {
+          artwork.version = "eu";
+        } else if (entities[i].coverArt.isNorthAmerican) {
+          artwork.version = "eu";
+        } else if (entities[i].coverArt.isAustralian) {
+          artwork.version = "au";
+        } else {
+          artwork.version = null;
+        }
+
+        artwork.source = entities[i].coverArt.source;
+        artwork.artist = entities[i].coverArt.artist;
       } else {
         artwork.source = null;
+        artwork.artist = null;
       }
-
-      // if (entities[i].singles.length) {
-      //   console.log("entities", entities[i].singles[0].songs);
-      // }
 
       API_OUTPUT.push({
         title: title,
@@ -300,10 +221,14 @@ module.exports = {
           format: artwork.ext,
           size: artwork.size,
           url: artwork.url,
-          source: artwork.source
+          source: artwork.source,
+          version: artwork.version,
+          artist: artwork.artist
         }
       });
     }
+
+    console.log(API_OUTPUT);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
