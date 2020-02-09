@@ -30,11 +30,13 @@ module.exports = {
       });
     }
 
-    let title = "";
+    let title = null;
     let trackCount = 0;
-    let worldwideReleaseDate = "";
-    let europeanReleaseDate = "";
-    let australianReleaseDate = "";
+    let worldwideReleaseDate = null;
+    let internationalReleaseDate = null;
+    let europeanReleaseDate = null;
+    let northAmericanReleaseDate = null;
+    let australianReleaseDate = null;
     let isStudioRecording = false;
     let isLiveRecording = false;
     let musicians = [];
@@ -68,24 +70,26 @@ module.exports = {
       }
 
       // * Worldwide Release...
-      if (
-        entities[i].worldwideReleaseDate !== null ||
-        typeof entities[i].worldwideReleaseDate !== "undefined"
-      ) {
+      if (entities[i].worldwideReleaseDate !== null) {
         worldwideReleaseDate = entities[i].worldwideReleaseDate;
       }
+
+      // * International Release...
+      if (entities[i].internationalReleaseDate !== null) {
+        internationalReleaseDate = entities[i].internationalReleaseDate;
+      }
+
+      // * North American Release...
+      if (entities[i].northAmericanReleaseDate !== null) {
+        northAmericanReleaseDate = entities[i].northAmericanReleaseDate;
+      }
+
       // * European Release...
-      if (
-        entities[i].europeanReleaseDate !== null ||
-        typeof entities[i].europeanReleaseDate !== "undefined"
-      ) {
+      if (entities[i].europeanReleaseDate !== null) {
         europeanReleaseDate = entities[i].europeanReleaseDate;
       }
       // * Australia Release...
-      if (
-        entities[i].australianReleaseDate !== null ||
-        typeof entities[i].australianReleaseDate !== "undefined"
-      ) {
+      if (entities[i].australianReleaseDate !== null) {
         australianReleaseDate = entities[i].australianReleaseDate;
       }
 
@@ -224,6 +228,8 @@ module.exports = {
         title: title,
         trackCount: trackCount,
         worldwideReleaseDate: worldwideReleaseDate,
+        internationalReleaseDate: internationalReleaseDate,
+        northAmericanReleaseDate: northAmericanReleaseDate,
         europeanReleaseDate: europeanReleaseDate,
         australianReleaseDate: australianReleaseDate,
         isStudioRecording: isStudioRecording,
@@ -249,7 +255,7 @@ module.exports = {
       });
     }
 
-    console.log(entities);
+    console.log(API_OUTPUT);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });

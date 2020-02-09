@@ -89,6 +89,12 @@
     },
     "labels": {
       "collection": "label"
+    },
+    "internationalReleaseDate": {
+      "type": "date"
+    },
+    "northAmericanReleaseDate": {
+      "type": "date"
     }
   }
 }
