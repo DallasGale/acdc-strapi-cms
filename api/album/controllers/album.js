@@ -40,6 +40,7 @@ module.exports = {
     let musicians = [];
     let producers = [];
     let producedAt = [];
+    let publisher = [];
     let industryCharts = [];
     let unitsMoved = [];
     let sideA = [];
@@ -130,6 +131,12 @@ module.exports = {
         producedAt = entities[i].studios;
       }
 
+      // * Publisher...
+      if (entities[i].publisher !== null) {
+        // deleteId(entities[i].producers);
+        publisher = entities[i].publisher;
+      }
+
       // * Charts...
       if (entities[i].charts !== null) {
         // deleteId(entities[i].charts);
@@ -171,7 +178,7 @@ module.exports = {
 
       // * Artwork image...
       if (typeof entities[i].coverArt.image !== "undefined") {
-        console.log("entities[i].coverArt.image", entities[i].coverArt.image);
+        // console.log("entities[i].coverArt.image", entities[i].coverArt.image);
 
         artwork.format = entities[i].coverArt.image.ext;
         artwork.url = entities[i].coverArt.image.url;
@@ -212,6 +219,7 @@ module.exports = {
         musicians: musicians,
         producers: producers,
         producedAt: producedAt,
+        publisher: publisher,
         industryCharts: industryCharts,
         unitsMoved: unitsMoved,
         sideA: sideA,
