@@ -12,12 +12,6 @@
     "title": {
       "type": "string"
     },
-    "europeanReleaseDate": {
-      "type": "date"
-    },
-    "australianReleaseDate": {
-      "type": "date"
-    },
     "isStudioRecording": {
       "type": "boolean",
       "default": false
@@ -51,9 +45,6 @@
       "type": "component",
       "repeatable": true,
       "component": "long-play-format.side-a"
-    },
-    "worldwideReleaseDate": {
-      "type": "date"
     },
     "producers": {
       "collection": "producer"
@@ -89,12 +80,6 @@
     },
     "labels": {
       "collection": "label"
-    },
-    "internationalReleaseDate": {
-      "type": "date"
-    },
-    "northAmericanReleaseDate": {
-      "type": "date"
     },
     "isNorthAmericanVersion": {
       "type": "boolean"

@@ -24,6 +24,8 @@ module.exports = {
       });
     }
 
+    let API_OUTPUT = [];
+
     return entities.map(entity => {
       // TODO: When creating the new json response remove most of the 'album' data.. leave 'title'.
       console.log("entity...", entity);

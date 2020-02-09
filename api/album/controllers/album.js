@@ -3,7 +3,7 @@
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
-const { sanitizeEntity } = require("strapi-utils");
+const { convertRestQueryParams, sanitizeEntity } = require("strapi-utils");
 
 function deleteId(array) {
   array.map(arr => {
@@ -26,21 +26,12 @@ module.exports = {
     } else {
       console.log("finding...");
       entities = await strapi.services.album.find({
-        _sort: "id:asc"
+        _sort: "releaseDate:asc"
       });
     }
 
     let title = null;
     let trackCount = 0;
-    // let worldwideReleaseDate = null;
-    // let internationalReleaseDate = null;
-    // let europeanReleaseDate = null;
-    // let northAmericanReleaseDate = null;
-    // let isInternational = false;
-    // let isAustralian = false;
-    // let isNorthAmerican = false;
-    // let isEuropean = false;
-    // let isJapanese = false;
     let releaseDate = null;
     let isStudioRecording = false;
     let isLiveRecording = false;
@@ -78,30 +69,6 @@ module.exports = {
       if (entities[i].releaseDate !== null) {
         releaseDate = entities[i].releaseDate;
       }
-
-      // // * Worldwide Release...
-      // if (entities[i].worldwideReleaseDate !== null) {
-      //   worldwideReleaseDate = entities[i].worldwideReleaseDate;
-      // }
-
-      // // * International Release...
-      // if (entities[i].internationalReleaseDate !== null) {
-      //   internationalReleaseDate = entities[i].internationalReleaseDate;
-      // }
-
-      // // * North American Release...
-      // if (entities[i].northAmericanReleaseDate !== null) {
-      //   northAmericanReleaseDate = entities[i].northAmericanReleaseDate;
-      // }
-
-      // // * European Release...
-      // if (entities[i].europeanReleaseDate !== null) {
-      //   europeanReleaseDate = entities[i].europeanReleaseDate;
-      // }
-      // // * Australia Release...
-      // if (entities[i].australianReleaseDate !== null) {
-      //   australianReleaseDate = entities[i].australianReleaseDate;
-      // }
 
       // * Studio Recording...
       if (
@@ -266,7 +233,7 @@ module.exports = {
       });
     }
 
-    console.log(entities);
+    console.log(API_OUTPUT);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
