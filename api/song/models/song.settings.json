@@ -18,9 +18,6 @@
       "minLength": 12,
       "maxLength": 12
     },
-    "writingCredits": {
-      "type": "json"
-    },
     "single": {
       "type": "boolean",
       "default": false
@@ -35,6 +32,9 @@
     },
     "albums": {
       "collection": "album"
+    },
+    "writers": {
+      "collection": "writer"
     }
   }
 }

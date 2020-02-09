@@ -305,8 +305,6 @@ module.exports = {
       });
     }
 
-    console.log(API_OUTPUT);
-
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
