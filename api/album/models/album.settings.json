@@ -84,6 +84,9 @@
       "type": "component",
       "repeatable": true,
       "component": "single-release.singles"
+    },
+    "coverArtSource": {
+      "type": "string"
     }
   }
 }

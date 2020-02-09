@@ -47,7 +47,8 @@ module.exports = {
     let artwork = {
       size: null,
       format: null,
-      url: null
+      url: null,
+      source: null
     };
 
     // ? Build up the response...
@@ -256,6 +257,12 @@ module.exports = {
         artwork.url = null;
         artwork.size = null;
       }
+      // * Artwork source...
+      if (entities[i].coverArtSource !== null) {
+        artwork.source = entities[i].coverArtSource;
+      } else {
+        artwork.source = null;
+      }
 
       // if (entities[i].singles.length) {
       //   console.log("entities", entities[i].singles[0].songs);
@@ -279,12 +286,13 @@ module.exports = {
         artwork: {
           format: artwork.ext,
           size: artwork.size,
-          url: artwork.url
+          url: artwork.url,
+          source: artwork.source
         }
       });
     }
 
-    // console.log(entities);
+    // console.log(API_OUTPUT);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
