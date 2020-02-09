@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/v1/",
+      "handler": "album.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/albums",
       "handler": "album.find",
       "config": {

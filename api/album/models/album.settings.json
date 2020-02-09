@@ -79,6 +79,11 @@
     },
     "coverArtBy": {
       "type": "string"
+    },
+    "singles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "single-release.singles"
     }
   }
 }

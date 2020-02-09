@@ -1,0 +1,14 @@
+{
+  "connection": "default",
+  "collectionName": "components_single_release_singles",
+  "info": {
+    "name": "singles",
+    "icon": "dungeon"
+  },
+  "options": {},
+  "attributes": {
+    "songs": {
+      "collection": "song"
+    }
+  }
+}

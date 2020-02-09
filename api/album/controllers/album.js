@@ -43,6 +43,7 @@ module.exports = {
     let unitsMoved = [];
     let sideA = [];
     let sideB = [];
+    let singles = [];
     let artwork = {
       size: null,
       format: null,
@@ -195,7 +196,7 @@ module.exports = {
         entities[i].performers !== null ||
         typeof entities[i].performers !== "undefined"
       ) {
-        deleteId(entities[i].performers);
+        // deleteId(entities[i].performers);
         musicians = entities[i].performers;
       }
       // * Producers...
@@ -203,22 +204,24 @@ module.exports = {
         entities[i].producers !== null ||
         typeof entities[i].producers !== "undefined"
       ) {
-        deleteId(entities[i].producers);
+        // deleteId(entities[i].producers);
         producers = entities[i].producers;
       }
       // * Charts...
       if (entities[i].charts !== null) {
-        deleteId(entities[i].charts);
+        // deleteId(entities[i].charts);
         industryCharts = entities[i].charts;
       }
+
       // * Certification...
       if (entities[i].units !== null) {
-        deleteId(entities[i].units);
+        // deleteId(entities[i].units);
         unitsMoved = entities[i].units;
       }
+
       // * Track Count...
       if (entities[i].sideA.length) {
-        deleteId(entities[i].sideA[0].songs);
+        // deleteId(entities[i].sideA[0].songs);
         sideA = entities[i].sideA[0].songs;
         trackCount = entities[i].sideA[0].songs.length;
       } else {
@@ -226,12 +229,21 @@ module.exports = {
         trackCount = 0;
       }
 
-      if (entities[i].sideB.length !== 0) {
-        deleteId(entities[i].sideB[0].songs);
+      // * Track Count...
+      if (entities[i].sideB.length) {
+        // deleteId(entities[i].sideB[0].songs);
         sideB = entities[i].sideB[0].songs;
         trackCount += entities[i].sideB[0].songs.length;
       } else {
         sideB = [];
+      }
+
+      // * Singles...
+      if (entities[i].singles.length) {
+        // deleteId(entities[i].singles[0].songs);
+        singles = entities[i].singles;
+      } else {
+        singles = [];
       }
 
       // * Artwork...
@@ -244,6 +256,10 @@ module.exports = {
         artwork.url = null;
         artwork.size = null;
       }
+
+      // if (entities[i].singles.length) {
+      //   console.log("entities", entities[i].singles[0].songs);
+      // }
 
       API_OUTPUT.push({
         title: title,
@@ -259,6 +275,7 @@ module.exports = {
         unitsMoved: unitsMoved,
         sideA: sideA,
         sideB: sideB,
+        singles: singles,
         artwork: {
           format: artwork.ext,
           size: artwork.size,
@@ -266,6 +283,9 @@ module.exports = {
         }
       });
     }
+
+    // console.log(entities);
+
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
