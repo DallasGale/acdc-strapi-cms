@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "studios",
+  "info": {
+    "name": "studio"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}

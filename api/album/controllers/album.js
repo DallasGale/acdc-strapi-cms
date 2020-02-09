@@ -39,6 +39,7 @@ module.exports = {
     let isLiveRecording = false;
     let musicians = [];
     let producers = [];
+    let producedAt = [];
     let industryCharts = [];
     let unitsMoved = [];
     let sideA = [];
@@ -200,6 +201,7 @@ module.exports = {
         // deleteId(entities[i].performers);
         musicians = entities[i].performers;
       }
+
       // * Producers...
       if (
         entities[i].producers !== null ||
@@ -208,6 +210,16 @@ module.exports = {
         // deleteId(entities[i].producers);
         producers = entities[i].producers;
       }
+
+      // * Produced at...
+      if (
+        entities[i].studios !== null ||
+        typeof entities[i].studios !== "undefined"
+      ) {
+        // deleteId(entities[i].producers);
+        producedAt = entities[i].studios;
+      }
+
       // * Charts...
       if (entities[i].charts !== null) {
         // deleteId(entities[i].charts);
@@ -278,6 +290,7 @@ module.exports = {
         isLiveRecording: isLiveRecording,
         musicians: musicians,
         producers: producers,
+        producedAt: producedAt,
         industryCharts: industryCharts,
         unitsMoved: unitsMoved,
         sideA: sideA,
@@ -292,7 +305,7 @@ module.exports = {
       });
     }
 
-    // console.log(API_OUTPUT);
+    console.log(API_OUTPUT);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
