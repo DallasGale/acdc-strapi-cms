@@ -22,19 +22,16 @@
       "type": "boolean",
       "default": false
     },
-    "singleReleaseDate": {
-      "type": "date"
-    },
-    "bSide": {
-      "type": "component",
-      "repeatable": true,
-      "component": "single-release.b-side"
-    },
     "albums": {
       "collection": "album"
     },
     "writers": {
       "collection": "writer"
+    },
+    "albumSingle": {
+      "type": "component",
+      "repeatable": true,
+      "component": "single-release.album-single"
     }
   }
 }

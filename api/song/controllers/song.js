@@ -25,6 +25,7 @@ module.exports = {
     }
 
     return entities.map(entity => {
+      // TODO: When creating the new json response remove most of the 'album' data.. leave 'title'.
       console.log("entity...", entity);
       return sanitizeEntity(entity, { model: strapi.models.song });
     });

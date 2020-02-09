@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "components_single_release_album_singles",
+  "info": {
+    "name": "albumSingle",
+    "icon": "map-signs"
+  },
+  "options": {},
+  "attributes": {
+    "details": {
+      "type": "string"
+    },
+    "coverArt": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "industryCharts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certified.peak-chart-position"
+    },
+    "released": {
+      "type": "date"
+    },
+    "bSide": {
+      "collection": "song"
+    }
+  }
+}
