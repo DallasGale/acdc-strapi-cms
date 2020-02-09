@@ -32,11 +32,16 @@ module.exports = {
 
     let title = null;
     let trackCount = 0;
-    let worldwideReleaseDate = null;
-    let internationalReleaseDate = null;
-    let europeanReleaseDate = null;
-    let northAmericanReleaseDate = null;
-    let australianReleaseDate = null;
+    // let worldwideReleaseDate = null;
+    // let internationalReleaseDate = null;
+    // let europeanReleaseDate = null;
+    // let northAmericanReleaseDate = null;
+    // let isInternational = false;
+    // let isAustralian = false;
+    // let isNorthAmerican = false;
+    // let isEuropean = false;
+    // let isJapanese = false;
+    let releaseDate = null;
     let isStudioRecording = false;
     let isLiveRecording = false;
     let musicians = [];
@@ -69,29 +74,34 @@ module.exports = {
         title = entities[i].title;
       }
 
-      // * Worldwide Release...
-      if (entities[i].worldwideReleaseDate !== null) {
-        worldwideReleaseDate = entities[i].worldwideReleaseDate;
+      // * Release date...
+      if (entities[i].releaseDate !== null) {
+        releaseDate = entities[i].releaseDate;
       }
 
-      // * International Release...
-      if (entities[i].internationalReleaseDate !== null) {
-        internationalReleaseDate = entities[i].internationalReleaseDate;
-      }
+      // // * Worldwide Release...
+      // if (entities[i].worldwideReleaseDate !== null) {
+      //   worldwideReleaseDate = entities[i].worldwideReleaseDate;
+      // }
 
-      // * North American Release...
-      if (entities[i].northAmericanReleaseDate !== null) {
-        northAmericanReleaseDate = entities[i].northAmericanReleaseDate;
-      }
+      // // * International Release...
+      // if (entities[i].internationalReleaseDate !== null) {
+      //   internationalReleaseDate = entities[i].internationalReleaseDate;
+      // }
 
-      // * European Release...
-      if (entities[i].europeanReleaseDate !== null) {
-        europeanReleaseDate = entities[i].europeanReleaseDate;
-      }
-      // * Australia Release...
-      if (entities[i].australianReleaseDate !== null) {
-        australianReleaseDate = entities[i].australianReleaseDate;
-      }
+      // // * North American Release...
+      // if (entities[i].northAmericanReleaseDate !== null) {
+      //   northAmericanReleaseDate = entities[i].northAmericanReleaseDate;
+      // }
+
+      // // * European Release...
+      // if (entities[i].europeanReleaseDate !== null) {
+      //   europeanReleaseDate = entities[i].europeanReleaseDate;
+      // }
+      // // * Australia Release...
+      // if (entities[i].australianReleaseDate !== null) {
+      //   australianReleaseDate = entities[i].australianReleaseDate;
+      // }
 
       // * Studio Recording...
       if (
@@ -225,25 +235,26 @@ module.exports = {
       }
 
       API_OUTPUT.push({
-        title: title,
-        trackCount: trackCount,
-        worldwideReleaseDate: worldwideReleaseDate,
-        internationalReleaseDate: internationalReleaseDate,
-        northAmericanReleaseDate: northAmericanReleaseDate,
-        europeanReleaseDate: europeanReleaseDate,
-        australianReleaseDate: australianReleaseDate,
-        isStudioRecording: isStudioRecording,
-        isLiveRecording: isLiveRecording,
-        musicians: musicians,
-        producers: producers,
-        producedAt: producedAt,
-        publisher: publisher,
-        label: label,
-        industryCharts: industryCharts,
-        unitsMoved: unitsMoved,
-        sideA: sideA,
-        sideB: sideB,
-        singles: singles,
+        title,
+        trackCount,
+        isInternational: entities[i].isInternationalVersion,
+        isAustralian: entities[i].isAustralianVersion,
+        isNorthAmerican: entities[i].isNorthAmericanVersion,
+        isEuropean: entities[i].isEuropeanVersion,
+        isJapanese: entities[i].isJapaneseVersion,
+        releaseDate,
+        isStudioRecording,
+        isLiveRecording,
+        musicians,
+        producers,
+        producedAt,
+        publisher,
+        label,
+        industryCharts,
+        unitsMoved,
+        sideA,
+        sideB,
+        singles,
         artwork: {
           format: artwork.ext,
           size: artwork.size,
@@ -255,7 +266,7 @@ module.exports = {
       });
     }
 
-    console.log(API_OUTPUT);
+    console.log(entities);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });

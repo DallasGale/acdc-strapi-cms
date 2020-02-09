@@ -95,6 +95,15 @@
     },
     "northAmericanReleaseDate": {
       "type": "date"
+    },
+    "isNorthAmericanVersion": {
+      "type": "boolean"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "isJapaneseVersion": {
+      "type": "boolean"
     }
   }
 }
