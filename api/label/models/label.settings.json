@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "producers",
+  "collectionName": "labels",
   "info": {
-    "name": "producer"
+    "name": "label"
   },
   "options": {
     "increments": true,

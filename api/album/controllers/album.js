@@ -41,6 +41,7 @@ module.exports = {
     let producers = [];
     let producedAt = [];
     let publisher = [];
+    let label = [];
     let industryCharts = [];
     let unitsMoved = [];
     let sideA = [];
@@ -137,6 +138,17 @@ module.exports = {
         publisher = entities[i].publisher;
       }
 
+      // * Labels...
+      if (
+        entities[i].labels !== null ||
+        typeof entities[i].labels !== "undefined"
+      ) {
+        // deleteId(entities[i].producers);
+        label = entities[i].labels;
+      } else {
+        label = [];
+      }
+
       // * Charts...
       if (entities[i].charts !== null) {
         // deleteId(entities[i].charts);
@@ -220,6 +232,7 @@ module.exports = {
         producers: producers,
         producedAt: producedAt,
         publisher: publisher,
+        label: label,
         industryCharts: industryCharts,
         unitsMoved: unitsMoved,
         sideA: sideA,

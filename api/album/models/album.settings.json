@@ -89,6 +89,9 @@
     },
     "publisher": {
       "model": "publisher"
+    },
+    "labels": {
+      "collection": "label"
     }
   }
 }
