@@ -84,9 +84,6 @@
       "repeatable": true,
       "component": "artwork.artwork"
     },
-    "album": {
-      "model": "album"
-    },
     "publisher": {
       "model": "publisher"
     },
