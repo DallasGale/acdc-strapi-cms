@@ -26,7 +26,19 @@ module.exports = {
 
     let API_OUTPUT = [];
 
-    return entities.map(entity => {
+    for (let i = 0; i < entities.length; i++) {
+      API_OUTPUT.push({
+        id: entities[i].id,
+        title: entities[i].title,
+        length: entities[i].length,
+        isSingle: entities[i].single,
+        singleInfo: entities[i].albumSingle, // destructure this object
+        singleReleased: entities[i].singleReleaseDate,
+        writtenBy: entities[i].writers
+      });
+    }
+
+    return API_OUTPUT.map(entity => {
       // TODO: When creating the new json response remove most of the 'album' data.. leave 'title'.
       console.log("entity...", entity);
       return sanitizeEntity(entity, { model: strapi.models.song });

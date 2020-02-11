@@ -40,8 +40,8 @@ module.exports = {
     let producedAt = [];
     let publisher = [];
     let label = [];
-    let industryCharts = [];
-    let unitsMoved = [];
+    let charts = [];
+    let certification = [];
     let sideA = [];
     let sideB = [];
     let singles = [];
@@ -133,13 +133,13 @@ module.exports = {
       // * Charts...
       if (entities[i].charts !== null) {
         // deleteId(entities[i].charts);
-        industryCharts = entities[i].charts;
+        charts = entities[i].charts;
       }
 
       // * Certification...
       if (entities[i].units !== null) {
         // deleteId(entities[i].units);
-        unitsMoved = entities[i].units;
+        certification = entities[i].units;
       }
 
       // * Track Count...
@@ -217,8 +217,8 @@ module.exports = {
         producedAt,
         publisher,
         label,
-        industryCharts,
-        unitsMoved,
+        charts,
+        certification,
         sideA,
         sideB,
         singles,
@@ -233,7 +233,7 @@ module.exports = {
       });
     }
 
-    console.log(API_OUTPUT);
+    console.log(entities);
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
