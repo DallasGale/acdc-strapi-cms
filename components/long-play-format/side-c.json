@@ -1,0 +1,14 @@
+{
+  "info": {
+    "name": "sideC",
+    "icon": "arrow-circle-down"
+  },
+  "options": {},
+  "attributes": {
+    "songs": {
+      "collection": "song"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_long_play_format_side_cs"
+}

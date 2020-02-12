@@ -89,6 +89,16 @@
     },
     "isJapaneseVersion": {
       "type": "boolean"
+    },
+    "sideC": {
+      "type": "component",
+      "repeatable": true,
+      "component": "long-play-format.side-c"
+    },
+    "sideD": {
+      "type": "component",
+      "repeatable": true,
+      "component": "long-play-format.side-d"
     }
   }
 }

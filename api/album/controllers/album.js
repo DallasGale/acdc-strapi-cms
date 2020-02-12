@@ -44,6 +44,8 @@ module.exports = {
     let certification = [];
     let sideA = [];
     let sideB = [];
+    let sideC = [];
+    let sideD = [];
     let singles = [];
     let artwork = {
       size: null,
@@ -161,6 +163,24 @@ module.exports = {
         sideB = [];
       }
 
+      // * Track Count...
+      if (entities[i].sideC.length) {
+        // deleteId(entities[i].sideB[0].songs);
+        sideC = entities[i].sideC[0].songs;
+        trackCount += entities[i].sideC[0].songs.length;
+      } else {
+        sideC = [];
+      }
+
+      // * Track Count...
+      if (entities[i].sideD.length) {
+        // deleteId(entities[i].sideB[0].songs);
+        sideD = entities[i].sideD[0].songs;
+        trackCount += entities[i].sideD[0].songs.length;
+      } else {
+        sideD = [];
+      }
+
       // * Singles...
       if (entities[i].singles.length) {
         // deleteId(entities[i].singles[0].songs);
@@ -221,6 +241,8 @@ module.exports = {
         certification,
         sideA,
         sideB,
+        sideC,
+        sideD,
         singles,
         artwork: {
           format: artwork.ext,
