@@ -20,10 +20,10 @@
       "type": "integer"
     },
     "fromYear": {
-      "type": "date"
+      "type": "string"
     },
     "toYear": {
-      "type": "date"
+      "type": "string"
     }
   }
 }
