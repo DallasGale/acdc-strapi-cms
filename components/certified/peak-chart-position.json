@@ -18,6 +18,12 @@
     },
     "year": {
       "type": "integer"
+    },
+    "fromYear": {
+      "type": "date"
+    },
+    "toYear": {
+      "type": "date"
     }
   }
 }
