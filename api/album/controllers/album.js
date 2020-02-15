@@ -209,7 +209,6 @@ module.exports = {
       if (album_entities[i].singles.length) {
         // deleteId(album_entities[i].singles[0].songs);
         deleteWritenBy(album_entities[i].singles[0].songs);
-
         singles = album_entities[i].singles[0].songs;
       } else {
         singles = [];
