@@ -16,9 +16,9 @@ function deleteId(array) {
 
 function deleteWritenBy(array) {
   array.map(arr => {
-    if (arr.writtingCredits) {
-      delete arr.writtingCredits;
-    } else return;
+    // if (arr.writingCredits) {
+    delete arr.writingCredits;
+    // } else return;
   });
 }
 
