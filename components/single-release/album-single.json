@@ -31,6 +31,23 @@
       "type": "integer",
       "min": 1970,
       "max": 2030
+    },
+    "monthReleased": {
+      "type": "enumeration",
+      "enum": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
     }
   }
 }
