@@ -26,6 +26,11 @@
     },
     "bSide": {
       "collection": "song"
+    },
+    "releaseYear": {
+      "type": "integer",
+      "min": 1970,
+      "max": 2030
     }
   }
 }

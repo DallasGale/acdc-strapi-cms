@@ -22,18 +22,6 @@ function deleteWritenBy(array) {
   });
 }
 
-function removeDuplicates(array) {
-  let a = [];
-  array.map(x => {
-    if (!a.includes(x)) {
-      a.push(x);
-    }
-
-    console.log("a", a);
-    return a;
-  });
-}
-
 module.exports = {
   /**
    * Retrieve records.
@@ -178,28 +166,20 @@ module.exports = {
 
       // * Track Count...
       if (album_entities[i].sideA.length) {
-        // let mergerdSong = {};
-        // deleteWritenBy(album_entities[i].sideA[0].songs);
+        deleteWritenBy(album_entities[i].sideA[0].songs);
 
-        // const songs = album_entities[i].sideA[0].songs.map(song => song);
-        // const filtered = songs.forEach(song =>
-        //   song_entities.filter(entity => {
-        //     // console.log("entity", entity);
-        //     if (entity.id === song.id) {
-        //       mergerdSong.id = song.id;
-        //       mergerdSong.title = song.title;
-        //       mergerdSong.length = song.length;
-        //       mergerdSong.isSingle = song.single;
-        //       mergerdSong.singleDetails = entity.albumSingle;
-        //       mergerdSong.songwriters = entity.writers;
-        //     } else {
-        //       return;
-        //     }
-        //     sideA.push(mergerdSong);
-        //   })
-        // );
+        album_entities[i].sideA.forEach(songA => {
+          let extended_song = {};
+          song_entities.map(song => {
+            if (song.id === songA.id) {
+              extended_song = songA;
+              extended_song.singleInfo = song.singleInfo;
+              sideA.push(extended_song);
+            }
+          });
+        });
+
         sideA = album_entities[i].sideA[0].songs;
-
         trackCount = album_entities[i].sideA[0].songs.length;
       } else {
         sideA = [];
@@ -311,12 +291,10 @@ module.exports = {
       });
     }
 
-    // console.log("sideA", sideA);
-    // removeDuplicates(sideA);
-    // console.log("album_entities", album_entities);
+    // console.log("sideA", album_entities);
     // console.log("song_entities", song_entities);
 
-    // console.log(API_OUTPUT);
+    console.log(API_OUTPUT);
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
