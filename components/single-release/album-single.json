@@ -48,6 +48,12 @@
         "November",
         "December"
       ]
+    },
+    "ReleasedUS": {
+      "type": "date"
+    },
+    "ReleasedUK": {
+      "type": "date"
     }
   }
 }
