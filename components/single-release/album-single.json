@@ -88,6 +88,12 @@
         "November",
         "December"
       ]
+    },
+    "releasedYearUK": {
+      "type": "integer"
+    },
+    "releasedYearUS": {
+      "type": "integer"
     }
   }
 }
