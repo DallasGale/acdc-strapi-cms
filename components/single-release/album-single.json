@@ -94,6 +94,11 @@
     },
     "releasedYearUS": {
       "type": "integer"
+    },
+    "unitsSold": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certified.units"
     }
   }
 }
