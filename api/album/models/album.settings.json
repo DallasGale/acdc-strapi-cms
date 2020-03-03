@@ -103,6 +103,9 @@
     "isLpRelease": {
       "type": "boolean",
       "default": false
+    },
+    "isLpVersion": {
+      "type": "boolean"
     }
   }
 }
