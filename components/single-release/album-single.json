@@ -99,6 +99,9 @@
       "type": "component",
       "repeatable": true,
       "component": "certified.units"
+    },
+    "releasedAus": {
+      "type": "date"
     }
   }
 }
