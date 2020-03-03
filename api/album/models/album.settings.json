@@ -100,12 +100,12 @@
       "repeatable": true,
       "component": "long-play-format.side-d"
     },
-    "isLpRelease": {
-      "type": "boolean",
-      "default": false
-    },
     "isLpVersion": {
       "type": "boolean"
+    },
+    "isEuropeanVersion": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
