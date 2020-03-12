@@ -109,6 +109,21 @@
     },
     "liveRecordingDate": {
       "type": "date"
+    },
+    "liveRecordingVenue": {
+      "type": "string"
+    },
+    "releasedEU": {
+      "type": "date"
+    },
+    "releasedUS": {
+      "type": "date"
+    },
+    "releasedAU": {
+      "type": "date"
+    },
+    "releasedNZ": {
+      "type": "date"
     }
   }
 }
