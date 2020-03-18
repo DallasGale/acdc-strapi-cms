@@ -38,6 +38,9 @@
     },
     "sideA": {
       "type": "component",
+      "sort": {
+        "order": "desc"
+      },
       "repeatable": true,
       "component": "long-play-format.side-a"
     },
