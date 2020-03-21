@@ -21,9 +21,9 @@ function deleteTitle(array) {
 
 function deleteWritenBy(array) {
   array.map(arr => {
-    // if (arr.writingCredits) {
-    delete arr.writingCredits;
-    // } else return;
+    if (arr.writingCredits) {
+      delete arr.writingCredits;
+    } else return;
   });
 }
 
@@ -185,15 +185,10 @@ module.exports = {
       if (album_entities[i].aSideTracks.length) {
         console.log(
           "album_entities[i].aSideTracks",
-          album_entities[i].aSideTracks[0].song
+          album_entities[i].aSideTracks.map(song => song.song)
         );
-        if (
-          typeof album_entities[i].aSideTracks[0].song.writingCredits !==
-          "undefined"
-        ) {
-          delete album_entities[i].aSideTracks[0].song.writingCredits;
-        }
-        // deleteWritenBy(album_entities[i].aSideTracks);
+
+        deleteWritenBy(album_entities[i].aSideTracks.map(song => song.song));
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
