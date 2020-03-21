@@ -38,9 +38,6 @@
     },
     "sideA": {
       "type": "component",
-      "sort": {
-        "order": "desc"
-      },
       "repeatable": true,
       "component": "long-play-format.side-a"
     },
@@ -127,6 +124,13 @@
     },
     "releasedNZ": {
       "type": "date"
+    },
+    "songs": {
+      "type": "dynamiczone",
+      "components": [
+        "music.songs",
+        "song.song"
+      ]
     }
   }
 }

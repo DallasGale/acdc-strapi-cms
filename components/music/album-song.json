@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "albumSong",
+    "icon": "american-sign-language-interpreting"
+  },
+  "options": {},
+  "attributes": {
+    "song": {
+      "type": "component",
+      "repeatable": true,
+      "component": "song.song"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_music_album_songs"
+}

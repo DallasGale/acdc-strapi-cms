@@ -178,63 +178,41 @@ module.exports = {
 
       // * Track Count...
       if (album_entities[i].sideA.length) {
-        // let mergerdSong = {};
-        // deleteWritenBy(album_entities[i].sideA[0].songs);
+        console.log("sideA", sideA);
+        sideA = album_entities.map(i => i.sideA[0].songList.map(i => i.song));
 
-        // const songs = album_entities[i].sideA[0].songs.map(song => song);
-        // const filtered = songs.forEach(song =>
-        //   song_entities.filter(entity => {
-        //     // console.log("entity", entity);
-        //     if (entity.id === song.id) {
-        //       mergerdSong.id = song.id;
-        //       mergerdSong.title = song.title;
-        //       mergerdSong.length = song.length;
-        //       mergerdSong.isSingle = song.single;
-        //       mergerdSong.singleDetails = entity.albumSingle;
-        //       mergerdSong.songwriters = entity.writers;
-        //     } else {
-        //       return;
-        //     }
-        //     sideA.push(mergerdSong);
-        //   })
-        // );
-        sideA = album_entities[i].sideA[0].songs;
-
-        trackCount = album_entities[i].sideA[0].songs.length;
+        // trackCount = album_entities[i].sideA[0].songs.length;
       } else {
         sideA = [];
         trackCount = 0;
       }
 
       // * Track Count...
-      if (album_entities[i].sideB.length) {
-        // deleteId(album_entities[i].sideB[0].songs);
-        deleteWritenBy(album_entities[i].sideB[0].songs);
-        sideB = album_entities[i].sideB[0].songs;
-        trackCount += album_entities[i].sideB[0].songs.length;
-      } else {
-        sideB = [];
-      }
+      // if (album_entities[i].sideB.length) {
+      //   deleteWritenBy(album_entities[i].sideB[0].songs);
+      //   sideB = album_entities[i].sideB[0].songs;
+      //   trackCount += album_entities[i].sideB[0].songs.length;
+      // } else {
+      //   sideB = [];
+      // }
 
       // * Track Count...
-      if (album_entities[i].sideC.length) {
-        // deleteId(album_entities[i].sideB[0].songs);
-        deleteWritenBy(album_entities[i].sideC[0].songs);
-        sideC = album_entities[i].sideC[0].songs;
-        trackCount += album_entities[i].sideC[0].songs.length;
-      } else {
-        sideC = [];
-      }
+      // if (album_entities[i].sideC.length) {
+      //   deleteWritenBy(album_entities[i].sideC[0].songs);
+      //   sideC = album_entities[i].sideC[0].songs;
+      //   trackCount += album_entities[i].sideC[0].songs.length;
+      // } else {
+      //   sideC = [];
+      // }
 
       // * Track Count...
-      if (album_entities[i].sideD.length) {
-        // deleteId(album_entities[i].sideB[0].songs);
-        deleteWritenBy(album_entities[i].sideD[0].songs);
-        sideD = album_entities[i].sideD[0].songs;
-        trackCount += album_entities[i].sideD[0].songs.length;
-      } else {
-        sideD = [];
-      }
+      // if (album_entities[i].sideD.length) {
+      //   deleteWritenBy(album_entities[i].sideD[0].songs);
+      //   sideD = album_entities[i].sideD[0].songs;
+      //   trackCount += album_entities[i].sideD[0].songs.length;
+      // } else {
+      //   sideD = [];
+      // }
 
       // * Singles...
       if (album_entities[i].singles.length) {
@@ -311,13 +289,16 @@ module.exports = {
       });
     }
 
-    // console.log("sideA", sideA);
+    // console.log(
+    //   "album_entities",
+    //   album_entities.map(i => i.sideA[0].songList.map(i => i.song))
+    // );
     // removeDuplicates(sideA);
     // console.log("album_entities", album_entities);
     // console.log("song_entities", song_entities);
 
     // console.log(API_OUTPUT);
-    return album_entities.map(entity => {
+    return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
   }

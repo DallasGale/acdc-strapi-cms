@@ -7,8 +7,10 @@
   },
   "options": {},
   "attributes": {
-    "songs": {
-      "collection": "song"
+    "songList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "song.song"
     }
   }
 }
