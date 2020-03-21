@@ -13,6 +13,11 @@ function deleteId(array) {
     delete arr.id;
   });
 }
+function deleteTitle(array) {
+  array.map(arr => {
+    delete arr.title;
+  });
+}
 
 function deleteWritenBy(array) {
   array.map(arr => {
@@ -178,6 +183,9 @@ module.exports = {
       // console.log("sideA", album_entities[i].sideA[0]);
 
       if (album_entities[i].aSideTracks.length) {
+        deleteWritenBy(album_entities[i].aSideTracks);
+        deleteTitle(album_entities[i].aSideTracks);
+        deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
       } else {
         sideA = [];
@@ -185,6 +193,9 @@ module.exports = {
       }
 
       if (album_entities[i].bSideTracks.length) {
+        deleteWritenBy(album_entities[i].bSideTracks);
+        deleteTitle(album_entities[i].bSideTracks);
+        deleteId(album_entities[i].bSideTracks);
         sideB = album_entities[i].bSideTracks;
       } else {
         sideB = [];
@@ -192,6 +203,9 @@ module.exports = {
       }
 
       if (album_entities[i].cSideTracks.length) {
+        deleteWritenBy(album_entities[i].cSideTracks);
+        deleteTitle(album_entities[i].cSideTracks);
+        deleteId(album_entities[i].cSideTracks);
         sideC = album_entities[i].cSideTracks;
       } else {
         sideC = [];
@@ -199,6 +213,9 @@ module.exports = {
       }
 
       if (album_entities[i].dSideTracks.length) {
+        deleteWritenBy(album_entities[i].dSideTracks);
+        deleteTitle(album_entities[i].dSideTracks);
+        deleteId(album_entities[i].dSideTracks);
         sideD = album_entities[i].dSideTracks;
       } else {
         sideD = [];
