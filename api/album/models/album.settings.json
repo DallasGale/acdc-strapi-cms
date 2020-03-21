@@ -125,12 +125,25 @@
     "releasedNZ": {
       "type": "date"
     },
-    "songs": {
-      "type": "dynamiczone",
-      "components": [
-        "music.songs",
-        "song.song"
-      ]
+    "aSideTracks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "song.song"
+    },
+    "bSideTracks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "song.song"
+    },
+    "cSideTracks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "song.song"
+    },
+    "dSideTracks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "song.song"
     }
   }
 }
