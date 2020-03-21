@@ -36,16 +36,6 @@
       "type": "boolean",
       "default": false
     },
-    "sideA": {
-      "type": "component",
-      "repeatable": true,
-      "component": "long-play-format.side-a"
-    },
-    "sideB": {
-      "type": "component",
-      "repeatable": true,
-      "component": "long-play-format.side-a"
-    },
     "producers": {
       "collection": "producer"
     },
@@ -89,16 +79,6 @@
     },
     "isJapaneseVersion": {
       "type": "boolean"
-    },
-    "sideC": {
-      "type": "component",
-      "repeatable": true,
-      "component": "long-play-format.side-c"
-    },
-    "sideD": {
-      "type": "component",
-      "repeatable": true,
-      "component": "long-play-format.side-d"
     },
     "isLpVersion": {
       "type": "boolean"

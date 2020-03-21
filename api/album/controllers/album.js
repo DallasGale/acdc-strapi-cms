@@ -183,7 +183,17 @@ module.exports = {
       // console.log("sideA", album_entities[i].sideA[0]);
 
       if (album_entities[i].aSideTracks.length) {
-        deleteWritenBy(album_entities[i].aSideTracks);
+        console.log(
+          "album_entities[i].aSideTracks",
+          album_entities[i].aSideTracks[0].song
+        );
+        if (
+          typeof album_entities[i].aSideTracks[0].song.writingCredits !==
+          "undefined"
+        ) {
+          delete album_entities[i].aSideTracks[0].song.writingCredits;
+        }
+        // deleteWritenBy(album_entities[i].aSideTracks);
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
