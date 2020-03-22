@@ -189,10 +189,10 @@ module.exports = {
         // );
 
         album_entities[i].aSideTracks.map(song => {
-          console.log("song", song.song.title);
-          if (song.song.writingCredits) {
-            delete song.song.writingCredits;
-          }
+          // console.log("song", song.song.title);
+          // if (song.song.writingCredits) {
+          delete song.song.writingCredits;
+          // }
         });
 
         // deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
