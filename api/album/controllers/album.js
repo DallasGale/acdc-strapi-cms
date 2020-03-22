@@ -21,7 +21,9 @@ function deleteTitle(array) {
 
 function deleteWritenBy(array) {
   array.map(song => {
-    delete song.song.writingCredits;
+    if (typeof song.song.writingCredits !== "undefined") {
+      delete song.song.writingCredits;
+    }
   });
 }
 
@@ -75,9 +77,9 @@ module.exports = {
     let charts = [];
     let certification = [];
     let sideA = {};
-    let sideB = [];
-    let sideC = [];
-    let sideD = [];
+    let sideB = {};
+    let sideC = {};
+    let sideD = {};
     let singles = [];
     let artwork = {
       size: null,
@@ -223,7 +225,7 @@ module.exports = {
       // * Singles...
       if (album_entities[i].singles.length) {
         // deleteId(album_entities[i].singles[0].songs);
-        deleteWritenBy(album_entities[i].singles[0].songs);
+        // deleteWritenBy(album_entities[i].singles[0].songs);
         singles = album_entities[i].singles[0].songs;
       } else {
         singles = [];
