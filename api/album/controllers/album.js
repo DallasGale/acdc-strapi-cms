@@ -180,8 +180,9 @@ module.exports = {
 
       if (album_entities[i].aSideTracks.length > 0) {
         album_entities[i].aSideTracks.map(i => {
+          console.log("i", i.song);
           // if (i.song.writingCredits) {
-          delete i.writingCredits;
+          delete i.song.length;
           // }
         });
         deleteTitle(album_entities[i].aSideTracks);
