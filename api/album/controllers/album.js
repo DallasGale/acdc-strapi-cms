@@ -21,8 +21,8 @@ function deleteTitle(array) {
 
 function deleteWritenBy(array) {
   array.map(song => {
-    if (typeof song.song !== "undefined") {
-      delete song.song.id;
+    if (typeof song !== "undefined") {
+      delete song.writingCredits;
     } else {
       return;
     }
