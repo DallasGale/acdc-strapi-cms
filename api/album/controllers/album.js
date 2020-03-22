@@ -192,7 +192,9 @@ module.exports = {
 
       if (album_entities[i].bSideTracks.length > 0) {
         album_entities[i].bSideTracks.map(i => {
-          delete i.song.writingCredits;
+          if (i.song.writingCredits) {
+            delete i.song.writingCredits;
+          }
         });
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
@@ -306,7 +308,7 @@ module.exports = {
     //   API_OUTPUT.map(i => i.sideA[0].songList.map(i => i))
     // );
     // removeDuplicates(sideA);
-    // console.log("album_entities", album_entities);
+    console.log("album_entities", album_entities);
     // console.log("song_entities", song_entities);
 
     return API_OUTPUT.map(entity => {
