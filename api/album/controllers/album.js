@@ -179,14 +179,11 @@ module.exports = {
       }
 
       if (album_entities[i].aSideTracks.length > 0) {
-        album_entities[i].aSideTracks.forEach(
-          track => delete track.writingCredits
-        );
-        // album_entities[i].aSideTracks.map(i => {
-        //   if (i.song.writingCredits) {
-        //     delete i.song.writingCredits;
-        //   }
-        // });
+        album_entities[i].aSideTracks.map(i => {
+          // if (i.song.writingCredits) {
+          delete i.writingCredits;
+          // }
+        });
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
