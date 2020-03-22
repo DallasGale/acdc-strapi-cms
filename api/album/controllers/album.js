@@ -183,9 +183,9 @@ module.exports = {
 
       if (album_entities[i].aSideTracks.length > 0) {
         // console.log('album_entities[i].aSideTracks[0].song', album_entities[i].aSideTracks[0].song)
-        if (album_entities[i].aSideTracks[0].song.writingCredits) {
-          deleteWritenBy(album_entities[i].aSideTracks[0]);
-        }
+        // if (album_entities[i].aSideTracks.map(song => song.song)) {
+          deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
+        // }
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
