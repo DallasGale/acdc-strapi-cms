@@ -182,7 +182,7 @@ module.exports = {
       // console.log("sideA", album_entities[i].sideA[0]);
 
       if (album_entities[i].aSideTracks.length > 0) {
-        console.log('album_entities[i].aSideTracks[0].song', album_entities[i].aSideTracks[0].song)
+        // console.log('album_entities[i].aSideTracks[0].song', album_entities[i].aSideTracks[0].song)
         if (album_entities[i].aSideTracks[0].song.writingCredits) {
           deleteWritenBy(album_entities[i].aSideTracks[0]);
         }
