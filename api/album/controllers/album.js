@@ -21,8 +21,7 @@ function deleteTitle(array) {
 
 function deleteWritenBy(array) {
   array.map(song => {
-      delete song.song.writingCredits;
-    } 
+    delete song.song.writingCredits;
   });
 }
 
@@ -184,7 +183,7 @@ module.exports = {
       if (album_entities[i].aSideTracks.length > 0) {
         // console.log('album_entities[i].aSideTracks[0].song', album_entities[i].aSideTracks[0].song)
         // if (album_entities[i].aSideTracks.map(song => song.song)) {
-          deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
+        deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
         // }
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
