@@ -180,11 +180,7 @@ module.exports = {
 
       if (album_entities[i].aSideTracks.length > 0) {
         album_entities[i].aSideTracks.map(i => {
-          console.log("i", i.song);
-          // if (i.song.writingCredits) {
-          delete i.song.length;
           delete i.song.writingCredits;
-          // }
         });
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
@@ -194,35 +190,41 @@ module.exports = {
         trackCount = 0;
       }
 
-      // if (album_entities[i].bSideTracks.length > 0) {
-      //   deleteWritenBy(album_entities[i].bSideTracks);
-      //   deleteTitle(album_entities[i].bSideTracks);
-      //   deleteId(album_entities[i].bSideTracks);
-      //   sideB = album_entities[i].bSideTracks;
-      // } else {
-      //   sideB = [];
-      //   trackCount = 0;
-      // }
+      if (album_entities[i].bSideTracks.length > 0) {
+        album_entities[i].bSideTracks.map(i => {
+          delete i.song.writingCredits;
+        });
+        deleteTitle(album_entities[i].bSideTracks);
+        deleteId(album_entities[i].bSideTracks);
+        sideB = album_entities[i].bSideTracks;
+      } else {
+        sideB = [];
+        trackCount = 0;
+      }
 
-      // if (album_entities[i].cSideTracks.length > 0) {
-      //   deleteWritenBy(album_entities[i].cSideTracks);
-      //   deleteTitle(album_entities[i].cSideTracks);
-      //   deleteId(album_entities[i].cSideTracks);
-      //   sideC = album_entities[i].cSideTracks;
-      // } else {
-      //   sideC = [];
-      //   trackCount = 0;
-      // }
+      if (album_entities[i].cSideTracks.length > 0) {
+        album_entities[i].cSideTracks.map(i => {
+          delete i.song.writingCredits;
+        });
+        deleteTitle(album_entities[i].cSideTracks);
+        deleteId(album_entities[i].cSideTracks);
+        sideC = album_entities[i].cSideTracks;
+      } else {
+        sideC = [];
+        trackCount = 0;
+      }
 
-      // if (album_entities[i].dSideTracks.length > 0) {
-      //   deleteWritenBy(album_entities[i].dSideTracks);
-      //   deleteTitle(album_entities[i].dSideTracks);
-      //   deleteId(album_entities[i].dSideTracks);
-      //   sideD = album_entities[i].dSideTracks;
-      // } else {
-      //   sideD = [];
-      //   trackCount = 0;
-      // }
+      if (album_entities[i].dSideTracks.length > 0) {
+        album_entities[i].dSideTracks.map(i => {
+          delete i.song.writingCredits;
+        });
+        deleteTitle(album_entities[i].dSideTracks);
+        deleteId(album_entities[i].dSideTracks);
+        sideD = album_entities[i].dSideTracks;
+      } else {
+        sideD = [];
+        trackCount = 0;
+      }
 
       // * Singles...
       if (album_entities[i].singles.length) {
