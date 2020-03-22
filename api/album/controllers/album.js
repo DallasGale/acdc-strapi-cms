@@ -183,6 +183,7 @@ module.exports = {
           console.log("i", i.song);
           // if (i.song.writingCredits) {
           delete i.song.length;
+          delete i.song.writingCredits;
           // }
         });
         deleteTitle(album_entities[i].aSideTracks);
