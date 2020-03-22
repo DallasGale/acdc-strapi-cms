@@ -190,17 +190,17 @@ module.exports = {
         trackCount = 0;
       }
 
-      // if (album_entities[i].bSideTracks.length > 0) {
-      //   album_entities[i].bSideTracks.map(i => {
-      //     delete i.song.writingCredits;
-      //   });
-      //   deleteTitle(album_entities[i].bSideTracks);
-      //   deleteId(album_entities[i].bSideTracks);
-      //   sideB = album_entities[i].bSideTracks;
-      // } else {
-      //   sideB = [];
-      //   trackCount = 0;
-      // }
+      if (album_entities[i].bSideTracks.length > 0) {
+        album_entities[i].bSideTracks.map(i => {
+          delete i.song.writingCredits;
+        });
+        deleteTitle(album_entities[i].bSideTracks);
+        deleteId(album_entities[i].bSideTracks);
+        sideB = album_entities[i].bSideTracks;
+      } else {
+        sideB = [];
+        trackCount = 0;
+      }
 
       // if (album_entities[i].cSideTracks.length > 0) {
       //   album_entities[i].cSideTracks.map(i => {
