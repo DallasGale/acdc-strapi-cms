@@ -21,8 +21,10 @@ function deleteTitle(array) {
 
 function deleteWritenBy(array) {
   array.map(song => {
-    if (typeof song.song.writingCredits !== "undefined") {
+    if (typeof song.song !== "undefined") {
       delete song.song.writingCredits;
+    } else {
+      return;
     }
   });
 }
