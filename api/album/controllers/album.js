@@ -20,11 +20,9 @@ function deleteTitle(array) {
 }
 
 function deleteWritenBy(array) {
-  // array.map(arr => {
-  //   if (arr.song.writingCredits) {
-  //     delete arr.song.writingCredits;
-  //   } else return;
-  // });
+  array.map(song => {
+    delete song.song.writingCredits;
+  });
 }
 
 function removeDuplicates(array) {
@@ -183,19 +181,7 @@ module.exports = {
       // console.log("sideA", album_entities[i].sideA[0]);
 
       if (album_entities[i].aSideTracks.length) {
-        // console.log(
-        //   "album_entities[i].aSideTracks",
-        //   album_entities[i].aSideTracks.map(song => song)
-        // );
-
-        album_entities[i].aSideTracks.map(song => {
-          // console.log("song", song.song.title);
-          // if (song.song.writingCredits) {
-          delete song.song.writingCredits;
-          // }
-        });
-
-        // deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
+        deleteWritenBy(album_entities[i].aSideTracks);
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
@@ -233,32 +219,6 @@ module.exports = {
         sideD = [];
         trackCount = 0;
       }
-
-      // if (album_entities[i].sideB.length) {
-      //   // deleteWritenBy(album_entities[i].sideB[0].songs);
-      //   sideB = album_entities.map(i => i.sideB[0].songList.map(i => i.song));
-      //   // trackCount = album_entities.map(i => i.sideB[0].songList.length);
-      // } else {
-      //   sideB = [];
-      // }
-
-      // * Track Count...
-      // if (album_entities[i].sideC.length) {
-      //   deleteWritenBy(album_entities[i].sideC[0].songs);
-      //   sideC = album_entities[i].sideC[0].songs;
-      //   trackCount += album_entities[i].sideC[0].songs.length;
-      // } else {
-      //   sideC = [];
-      // }
-
-      // * Track Count...
-      // if (album_entities[i].sideD.length) {
-      //   deleteWritenBy(album_entities[i].sideD[0].songs);
-      //   sideD = album_entities[i].sideD[0].songs;
-      //   trackCount += album_entities[i].sideD[0].songs.length;
-      // } else {
-      //   sideD = [];
-      // }
 
       // * Singles...
       if (album_entities[i].singles.length) {
