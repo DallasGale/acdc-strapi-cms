@@ -184,7 +184,7 @@ module.exports = {
       if (album_entities[i].aSideTracks.length > 0) {
         console.log('album_entities[i].aSideTracks[0].song', album_entities[i].aSideTracks[0].song)
         if (album_entities[i].aSideTracks[0].song.writingCredits) {
-          deleteWritenBy(album_entities[i].aSideTracks);
+          deleteWritenBy(album_entities[i].aSideTracks[0]);
         }
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
