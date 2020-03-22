@@ -182,7 +182,7 @@ module.exports = {
       }
       // console.log("sideA", album_entities[i].sideA[0]);
 
-      if (album_entities[i].aSideTracks.length) {
+      if (album_entities[i].aSideTracks.length > 0) {
         deleteWritenBy(album_entities[i].aSideTracks);
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
@@ -192,7 +192,7 @@ module.exports = {
         trackCount = 0;
       }
 
-      if (album_entities[i].bSideTracks.length) {
+      if (album_entities[i].bSideTracks.length > 0) {
         deleteWritenBy(album_entities[i].bSideTracks);
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
@@ -202,7 +202,7 @@ module.exports = {
         trackCount = 0;
       }
 
-      if (album_entities[i].cSideTracks.length) {
+      if (album_entities[i].cSideTracks.length > 0) {
         deleteWritenBy(album_entities[i].cSideTracks);
         deleteTitle(album_entities[i].cSideTracks);
         deleteId(album_entities[i].cSideTracks);
@@ -212,7 +212,7 @@ module.exports = {
         trackCount = 0;
       }
 
-      if (album_entities[i].dSideTracks.length) {
+      if (album_entities[i].dSideTracks.length > 0) {
         deleteWritenBy(album_entities[i].dSideTracks);
         deleteTitle(album_entities[i].dSideTracks);
         deleteId(album_entities[i].dSideTracks);
