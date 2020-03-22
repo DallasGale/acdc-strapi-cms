@@ -20,11 +20,11 @@ function deleteTitle(array) {
 }
 
 function deleteWritenBy(array) {
-  array.map(arr => {
-    if (arr.song.writingCredits) {
-      delete arr.song.writingCredits;
-    } else return;
-  });
+  // array.map(arr => {
+  //   if (arr.song.writingCredits) {
+  //     delete arr.song.writingCredits;
+  //   } else return;
+  // });
 }
 
 function removeDuplicates(array) {
@@ -183,12 +183,19 @@ module.exports = {
       // console.log("sideA", album_entities[i].sideA[0]);
 
       if (album_entities[i].aSideTracks.length) {
-        console.log(
-          "album_entities[i].aSideTracks",
-          album_entities[i].aSideTracks.map(song => song)
-        );
+        // console.log(
+        //   "album_entities[i].aSideTracks",
+        //   album_entities[i].aSideTracks.map(song => song)
+        // );
 
-        deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
+        album_entities[i].aSideTracks.map(song => {
+          console.log("song", song.song.title);
+          if (song.song.writingCredits) {
+            delete song.song.writingCredits;
+          }
+        });
+
+        // deleteWritenBy(album_entities[i].aSideTracks.map(song => song));
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
@@ -336,7 +343,7 @@ module.exports = {
     // console.log("album_entities", album_entities);
     // console.log("song_entities", song_entities);
 
-    return album_entities.map(entity => {
+    return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
   }
