@@ -21,11 +21,8 @@ function deleteTitle(array) {
 
 function deleteWritenBy(array) {
   array.map(song => {
-    if (typeof song !== "undefined") {
-      delete song.writingCredits;
-    } else {
-      return;
-    }
+      delete song.song.writingCredits;
+    } 
   });
 }
 
@@ -185,7 +182,10 @@ module.exports = {
       // console.log("sideA", album_entities[i].sideA[0]);
 
       if (album_entities[i].aSideTracks.length > 0) {
-        deleteWritenBy(album_entities[i].aSideTracks);
+        console.log('album_entities[i].aSideTracks[0].song', album_entities[i].aSideTracks[0].song)
+        if (album_entities[i].aSideTracks[0].song.writingCredits) {
+          deleteWritenBy(album_entities[i].aSideTracks);
+        }
         deleteTitle(album_entities[i].aSideTracks);
         deleteId(album_entities[i].aSideTracks);
         sideA = album_entities[i].aSideTracks;
@@ -307,7 +307,7 @@ module.exports = {
     // console.log("album_entities", album_entities);
     // console.log("song_entities", song_entities);
 
-    return album_entities.map(entity => {
+    return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
   }
