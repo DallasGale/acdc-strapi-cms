@@ -178,17 +178,17 @@ module.exports = {
         certification = album_entities[i].units;
       }
 
-      // if (album_entities[i].aSideTracks.length > 0) {
-      //   album_entities[i].aSideTracks.map(i => {
-      //     delete i.song.writingCredits;
-      //   });
-      //   deleteTitle(album_entities[i].aSideTracks);
-      //   deleteId(album_entities[i].aSideTracks);
-      //   sideA = album_entities[i].aSideTracks;
-      // } else {
-      //   sideA = [];
-      //   trackCount = 0;
-      // }
+      if (album_entities[i].aSideTracks.length > 0) {
+        album_entities[i].aSideTracks.map(i => {
+          delete i.song.writingCredits;
+        });
+        deleteTitle(album_entities[i].aSideTracks);
+        deleteId(album_entities[i].aSideTracks);
+        sideA = album_entities[i].aSideTracks;
+      } else {
+        sideA = [];
+        trackCount = 0;
+      }
 
       if (album_entities[i].bSideTracks.length > 0) {
         // album_entities[i].bSideTracks.map(i => {
@@ -198,18 +198,19 @@ module.exports = {
         // });
         // album_entities[i].bSideTracks.map(i => {
         // console.log("i", i);
-        let song1 = {};
-        let song2 = {};
-        let song3 = {};
-        let song4 = {};
-        let song5 = {};
-        let song6 = {};
-        let song7 = {};
-        let song8 = {};
-        let song9 = {};
-        let song10 = {};
+        // let song1 = {};
+        // let song2 = {};
+        // let song3 = {};
+        // let song4 = {};
+        // let song5 = {};
+        // let song6 = {};
+        // let song7 = {};
+        // let song8 = {};
+        // let song9 = {};
+        // let song10 = {};
 
         if (album_entities[i].bSideTracks[0]) {
+          let song1 = {};
           song1.id = album_entities[i].bSideTracks[0].song.id;
           song1.title = album_entities[i].bSideTracks[0].song.title;
           song1.length = album_entities[i].bSideTracks[0].song.length;
@@ -217,6 +218,7 @@ module.exports = {
         }
 
         if (album_entities[i].bSideTracks[1]) {
+          let song2 = {};
           song2.id = album_entities[i].bSideTracks[1].song.id;
           song2.title = album_entities[i].bSideTracks[1].song.title;
           song2.length = album_entities[i].bSideTracks[1].song.length;
@@ -224,6 +226,7 @@ module.exports = {
         }
 
         if (album_entities[i].bSideTracks[2]) {
+          let song3 = {};
           song3.id = album_entities[i].bSideTracks[2].song.id;
           song3.title = album_entities[i].bSideTracks[2].song.title;
           song3.length = album_entities[i].bSideTracks[2].song.length;
