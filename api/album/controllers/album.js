@@ -196,13 +196,13 @@ module.exports = {
         //     delete i.song.writingCredits;
         //   }
         // });
-        album_entities[i].bSideTracks.map(i => {
+        // album_entities[i].bSideTracks.map(i => {
           // console.log("i", i);
           let song = {};
 
-          song.id = i.song.id;
-          song.title = i.song.title;
-          song.length = i.song.length;
+          song.id = album_entities[i].bSideTracks[0].song.id;
+          song.title = album_entities[i].bSideTracks[0].song.title;
+          song.length = album_entities[i].bSideTracks[0].song.length;
           sideB.push(song);
 
           console.log("song", song);
