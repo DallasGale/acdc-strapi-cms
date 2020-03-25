@@ -180,7 +180,6 @@ module.exports = {
 
       if (album_entities[i].aSideTracks.length > 0) {
         album_entities[i].aSideTracks.map(i => {
-          console.log("a", i);
           delete i.song.writingCredits;
         });
         deleteTitle(album_entities[i].aSideTracks);
@@ -196,140 +195,37 @@ module.exports = {
         //   console.log("b", i);
         //   delete i.song.writingCredits;
         // });
-        deleteTitle(album_entities[i].bSideTracks);
-        deleteId(album_entities[i].bSideTracks);
+        // deleteTitle(album_entities[i].bSideTracks);
+        // deleteId(album_entities[i].bSideTracks);
         sideBB = album_entities[i].bSideTracks;
       } else {
         sideBB = [];
         trackCount = 0;
       }
 
-      // if (album_entities[i].bSideTracks.length > 0) {
-      //   // album_entities[i].bSideTracks.map(i => {
-      //   //   if (typeof i.song.writingCredits !== undefined) {
-      //   //     delete i.song.writingCredits;
-      //   //   }
-      //   // });
-      //   // album_entities[i].bSideTracks.map(i => {
-      //   // console.log("i", i);
-      //   // let song1 = {};
-      //   // let song2 = {};
-      //   // let song3 = {};
-      //   // let song4 = {};
-      //   // let song5 = {};
-      //   // let song6 = {};
-      //   // let song7 = {};
-      //   // let song8 = {};
-      //   // let song9 = {};
-      //   // let song10 = {};
+      if (album_entities[i].cSideTracks.length > 0) {
+        // album_entities[i].cSideTracks.map(i => {
+        //   delete i.song.writingCredits;
+        // });
+        deleteTitle(album_entities[i].cSideTracks);
+        deleteId(album_entities[i].cSideTracks);
+        sideC = album_entities[i].cSideTracks;
+      } else {
+        sideC = [];
+        trackCount = 0;
+      }
 
-      //   if (album_entities[i].bSideTracks[0]) {
-      //     let song1 = {};
-      //     song1.id = album_entities[i].bSideTracks[0].song.id;
-      //     song1.title = album_entities[i].bSideTracks[0].song.title;
-      //     song1.length = album_entities[i].bSideTracks[0].song.length;
-      //     sideB.push(song1);
-      //   }
-
-      //   if (album_entities[i].bSideTracks[1]) {
-      //     let song2 = {};
-      //     song2.id = album_entities[i].bSideTracks[1].song.id;
-      //     song2.title = album_entities[i].bSideTracks[1].song.title;
-      //     song2.length = album_entities[i].bSideTracks[1].song.length;
-      //     sideB.push(song2);
-      //   }
-
-      //   if (album_entities[i].bSideTracks[2]) {
-      //     let song3 = {};
-      //     song3.id = album_entities[i].bSideTracks[2].song.id;
-      //     song3.title = album_entities[i].bSideTracks[2].song.title;
-      //     song3.length = album_entities[i].bSideTracks[2].song.length;
-      //     sideB.push(song3);
-      //   }
-
-      //   // if (album_entities[i].bSideTracks[3]) {
-      //   //   song4.id = album_entities[i].bSideTracks[3].song.id;
-      //   //   song4.title = album_entities[i].bSideTracks[3].song.title;
-      //   //   song4.length = album_entities[i].bSideTracks[3].song.length;
-      //   //   sideB.push(song4);
-      //   // }
-
-      //   // if (album_entities[i].bSideTracks[4]) {
-      //   //   song5.id = album_entities[i].bSideTracks[4].song.id;
-      //   //   song5.title = album_entities[i].bSideTracks[4].song.title;
-      //   //   song5.length = album_entities[i].bSideTracks[4].song.length;
-      //   //   sideB.push(song5);
-      //   // }
-
-      //   // if (album_entities[i].bSideTracks[5]) {
-      //   //   song6.id = album_entities[i].bSideTracks[5].song.id;
-      //   //   song6.title = album_entities[i].bSideTracks[5].song.title;
-      //   //   song6.length = album_entities[i].bSideTracks[5].song.length;
-      //   //   sideB.push(song6);
-      //   // }
-
-      //   // if (album_entities[i].bSideTracks[6]) {
-      //   //   song7.id = album_entities[i].bSideTracks[6].song.id;
-      //   //   song7.title = album_entities[i].bSideTracks[6].song.title;
-      //   //   song7.length = album_entities[i].bSideTracks[6].song.length;
-      //   //   sideB.push(song7);
-      //   // }
-
-      //   // if (album_entities[i].bSideTracks[7]) {
-      //   //   song8.id = album_entities[i].bSideTracks[7].song.id;
-      //   //   song8.title = album_entities[i].bSideTracks[7].song.title;
-      //   //   song8.length = album_entities[i].bSideTracks[7].song.length;
-      //   //   sideB.push(song8);
-      //   // }
-
-      //   // if (album_entities[i].bSideTracks[8]) {
-      //   //   song9.id = album_entities[i].bSideTracks[8].song.id;
-      //   //   song9.title = album_entities[i].bSideTracks[8].song.title;
-      //   //   song9.length = album_entities[i].bSideTracks[8].song.length;
-      //   //   sideB.push(song9);
-      //   // }
-
-      //   // if (album_entities[i].bSideTracks[9]) {
-      //   //   song10.id = album_entities[i].bSideTracks[9].song.id;
-      //   //   song10.title = album_entities[i].bSideTracks[9].song.title;
-      //   //   song10.length = album_entities[i].bSideTracks[9].song.length;
-      //   //   sideB.push(song10);
-      //   // }
-
-      //   // console.log("song", song);
-
-      //   // deleteTitle(album_entities[i].bSideTracks);
-      //   // deleteId(album_entities[i].bSideTracks);
-
-      //   // sideB = album_entities[i].bSideTracks;
-      // } else {
-      //   sideB = [];
-      //   trackCount = 0;
-      // }
-
-      // if (album_entities[i].cSideTracks.length > 0) {
-      //   // album_entities[i].cSideTracks.map(i => {
-      //   //   delete i.song.writingCredits;
-      //   // });
-      //   deleteTitle(album_entities[i].cSideTracks);
-      //   deleteId(album_entities[i].cSideTracks);
-      //   sideC = album_entities[i].cSideTracks;
-      // } else {
-      //   sideC = [];
-      //   trackCount = 0;
-      // }
-
-      // if (album_entities[i].dSideTracks.length > 0) {
-      //   // album_entities[i].dSideTracks.map(i => {
-      //   //   delete i.song.writingCredits;
-      //   // });
-      //   deleteTitle(album_entities[i].dSideTracks);
-      //   deleteId(album_entities[i].dSideTracks);
-      //   sideD = album_entities[i].dSideTracks;
-      // } else {
-      //   sideD = [];
-      //   trackCount = 0;
-      // }
+      if (album_entities[i].dSideTracks.length > 0) {
+        // album_entities[i].dSideTracks.map(i => {
+        //   delete i.song.writingCredits;
+        // });
+        deleteTitle(album_entities[i].dSideTracks);
+        deleteId(album_entities[i].dSideTracks);
+        sideD = album_entities[i].dSideTracks;
+      } else {
+        sideD = [];
+        trackCount = 0;
+      }
 
       // * Singles...
       if (album_entities[i].singles.length) {
