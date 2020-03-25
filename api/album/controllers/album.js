@@ -196,15 +196,15 @@ module.exports = {
         //     delete i.song.writingCredits;
         //   }
         // });
-        album_entities[i].bSideTracks.map(i => i);
-        // let song = {};
+        album_entities[i].bSideTracks.map(i => {
+          let song = {};
 
-        // song.id = i.song.id;
-        // song.title = i.song.title;
-        // song.length = i.song.length;
-        // song.signle = i.song.single;
-        // sideB.push(song);
-
+          // song.id = i.song.id;
+          song.title = i.song.title;
+          // song.length = i.song.length;
+          // song.signle = i.song.single;
+          sideB.push(song);
+        });
         // deleteTitle(album_entities[i].bSideTracks);
         // deleteId(album_entities[i].bSideTracks);
 
