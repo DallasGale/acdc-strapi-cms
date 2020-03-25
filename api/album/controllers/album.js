@@ -192,7 +192,7 @@ module.exports = {
 
       if (album_entities[i].bSideTracks.length > 0) {
         album_entities[i].bSideTracks.map(i => {
-          if (i.song.writingCredits) {
+          if (typeof i.song.writingCredits !== undefined) {
             delete i.song.writingCredits;
           }
         });
