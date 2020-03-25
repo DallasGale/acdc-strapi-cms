@@ -195,8 +195,8 @@ module.exports = {
         //   console.log("b", i);
         //   delete i.song.writingCredits;
         // });
-        // deleteTitle(album_entities[i].bSideTracks);
-        // deleteId(album_entities[i].bSideTracks);
+        deleteTitle(album_entities[i].bSideTracks);
+        deleteId(album_entities[i].bSideTracks);
         sideBB = album_entities[i].bSideTracks;
       } else {
         sideBB = [];
