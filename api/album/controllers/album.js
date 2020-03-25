@@ -191,9 +191,9 @@ module.exports = {
       }
 
       if (album_entities[i].bSideTracks.length > 0) {
-        album_entities[i].bSideTracks.map(i => {
-          delete i.song.writingCredits;
-        });
+        // album_entities[i].bSideTracks.map(i => {
+        //   delete i.song.writingCredits;
+        // });
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
         sideB = album_entities[i].bSideTracks;
