@@ -196,10 +196,19 @@ module.exports = {
         //     delete i.song.writingCredits;
         //   }
         // });
-        album_entities[i].bSideTracks.map(i => delete i.song.writingCredits);
-        deleteTitle(album_entities[i].bSideTracks);
-        deleteId(album_entities[i].bSideTracks);
-        sideB = album_entities[i].bSideTracks;
+        album_entities[i].bSideTracks.map(i => {
+          let song = {};
+
+          song.id = i.song.id;
+          song.title = i.song.title;
+          song.length = i.song.length;
+          song.signle = i.song.single;
+          sideB.push(song);
+        });
+        // deleteTitle(album_entities[i].bSideTracks);
+        // deleteId(album_entities[i].bSideTracks);
+
+        // sideB = album_entities[i].bSideTracks;
       } else {
         sideB = [];
         trackCount = 0;
