@@ -75,7 +75,7 @@ module.exports = {
     let charts = [];
     let certification = [];
     let sideA = [];
-    let sideB = [];
+    let sideBB = [];
     let sideC = [];
     let sideD = [];
     let singles = [];
@@ -180,6 +180,7 @@ module.exports = {
 
       if (album_entities[i].aSideTracks.length > 0) {
         album_entities[i].aSideTracks.map(i => {
+          console.log("a", i);
           delete i.song.writingCredits;
         });
         deleteTitle(album_entities[i].aSideTracks);
@@ -192,13 +193,14 @@ module.exports = {
 
       if (album_entities[i].bSideTracks.length > 0) {
         album_entities[i].bSideTracks.map(i => {
+          console.log("b", i);
           delete i.song.writingCredits;
         });
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
-        sideB = album_entities[i].bSideTracks;
+        sideBB = album_entities[i].bSideTracks;
       } else {
-        sideB = [];
+        sideBB = [];
         trackCount = 0;
       }
 
@@ -389,7 +391,7 @@ module.exports = {
         charts,
         certification,
         sideA,
-        sideB,
+        sideBB,
         sideC,
         sideD,
         singles,
@@ -409,17 +411,17 @@ module.exports = {
     //   API_OUTPUT.map(i => i.sideA[0].songList.map(i => i))
     // );
     // removeDuplicates(sideA);
-    console.log(
-      "aSideTracks",
-      album_entities.map(i => i.aSideTracks)
-    );
-    console.log(
-      "bSideTracks",
-      album_entities.map(i => i.bSideTracks)
-    );
+    // console.log(
+    //   "aSideTracks",
+    //   album_entities.map(i => i.aSideTracks.map(i => i.song))
+    // );
+    // console.log(
+    //   "bSideTracks",
+    //   album_entities.map(i => i.bSideTracks.map(i => i.song))
+    // );
     // console.log("song_entities", song_entities);
 
-    return album_entities.map(entity => {
+    return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
     });
   }
