@@ -196,7 +196,7 @@ module.exports = {
         //     delete i.song.writingCredits;
         //   }
         // });
-        delete album_entities[i].bSideTracks[i].song.writingCredits;
+        delete album_entities[i].bSideTracks.map(i => i.song.writingCredits);
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
         sideB = album_entities[i].bSideTracks;
