@@ -197,13 +197,15 @@ module.exports = {
         //   }
         // });
         album_entities[i].bSideTracks.map(i => {
+          // console.log("i", i);
           let song = {};
 
-          // song.id = i.song.id;
+          song.id = i.song.id;
           song.title = i.song.title;
-          // song.length = i.song.length;
-          // song.signle = i.song.single;
+          song.length = i.song.length;
           sideB.push(song);
+
+          console.log("song", song);
         });
         // deleteTitle(album_entities[i].bSideTracks);
         // deleteId(album_entities[i].bSideTracks);
