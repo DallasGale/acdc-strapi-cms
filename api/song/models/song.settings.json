@@ -32,6 +32,13 @@
       "type": "component",
       "repeatable": true,
       "component": "single-release.album-single"
+    },
+    "isLiveRecording": {
+      "type": "boolean",
+      "default": false
+    },
+    "liveAlbum": {
+      "type": "string"
     }
   }
 }
