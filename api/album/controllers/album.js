@@ -75,7 +75,7 @@ module.exports = {
     let charts = [];
     let certification = [];
     let sideA = [];
-    let sideBB = [];
+    let sideB = [];
     let sideC = [];
     let sideD = [];
     let singles = [];
@@ -207,9 +207,9 @@ module.exports = {
         // delete album_entities[i].bSideTracks[4].song.writingCredits;
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
-        sideBB = album_entities[i].bSideTracks;
+        sideB = album_entities[i].bSideTracks;
       } else {
-        sideBB = [];
+        sideB = [];
         trackCount = 0;
       }
 
@@ -297,7 +297,7 @@ module.exports = {
         charts,
         certification,
         sideA,
-        sideBB,
+        sideB,
         sideC,
         sideD,
         singles,
