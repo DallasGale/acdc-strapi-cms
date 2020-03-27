@@ -62,6 +62,7 @@ module.exports = {
       });
     }
 
+    let id = 0;
     let title = null;
     let trackCount = 0;
     let releaseDate = null;
@@ -94,6 +95,13 @@ module.exports = {
     // console.log("songMap", songMap);
 
     for (let i = 0; i < album_entities.length; i++) {
+      if (
+        album_entities[i].id !== null ||
+        typeof album_entities[i].id !== "undefined"
+      ) {
+        id = album_entities[i].id;
+      }
+
       // * Title...
       if (
         album_entities[i].title !== null ||
@@ -285,6 +293,7 @@ module.exports = {
       }
 
       API_OUTPUT.push({
+        id,
         title,
         trackCount,
         isInternational: album_entities[i].isInternationalVersion,
