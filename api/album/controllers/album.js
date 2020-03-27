@@ -197,14 +197,20 @@ module.exports = {
         // });
 
         delete album_entities[i].bSideTracks[0].song.writingCredits;
-        delete album_entities[i].bSideTracks[1].song.writingCredits;
-        delete album_entities[i].bSideTracks[2].song.writingCredits;
-        delete album_entities[i].bSideTracks[3].song.writingCredits;
+        if (album_entities[i].bSideTracks.length === 2) {
+          delete album_entities[i].bSideTracks[1].song.writingCredits;
+        }
+        if (album_entities[i].bSideTracks.length === 3) {
+          delete album_entities[i].bSideTracks[2].song.writingCredits;
+        }
+        if (album_entities[i].bSideTracks.length === 4) {
+          delete album_entities[i].bSideTracks[3].song.writingCredits;
+        }
 
         if (album_entities[i].bSideTracks.length === 5) {
           delete album_entities[i].bSideTracks[4].song.writingCredits;
         }
-        delete album_entities[i].bSideTracks[4].song.writingCredits;
+        // delete album_entities[i].bSideTracks[4].song.writingCredits;
         deleteTitle(album_entities[i].bSideTracks);
         deleteId(album_entities[i].bSideTracks);
         sideB = album_entities[i].bSideTracks;
