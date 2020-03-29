@@ -311,8 +311,8 @@ module.exports = {
                 // singles[i].coverArt = singles[i].details[0].coverArt;
                 // delete singles[i].details[0].coverArt;
 
-                singles[i].bSide = singles[i].details[0].bSide;
-                delete singles[i].details[0].bSide;
+                // singles[i].bSide = singles[i].details[0].bSide;
+                // delete singles[i].details[0].bSide;
 
                 // singles[i].released = singles[i].details[0].released;
                 // delete singles[i].details[0].released;
