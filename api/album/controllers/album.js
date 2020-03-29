@@ -276,7 +276,26 @@ module.exports = {
               singles[i] = allSongs[c];
               // delete singles[i].id;
 
-              // if (singles[i].albumSingle) {
+              if (singles[i].albumSingle) {
+                singles[i].monthReleasedUK =
+                  singles[i].details[0].MonthReleasedUK;
+                delete singles[i].details[0].MonthReleasedUK;
+
+                singles[i].monthReleasedUS =
+                  singles[i].details[0].MonthReleasedUS;
+                delete singles[i].details[0].MonthReleasedUS;
+
+                singles[i].releasedYearUK =
+                  singles[i].details[0].releasedYearUK;
+                delete singles[i].details[0].releasedYearUK;
+
+                singles[i].releasedYearUS =
+                  singles[i].details[0].releasedYearUS;
+                delete singles[i].details[0].releasedYearUS;
+
+                singles[i].releasedAus = singles[i].details[0].releasedAus;
+                delete singles[i].details[0].releasedAus;
+              }
               //   singles[i].details = singles[i].albumSingle;
               //   delete singles[i].albumSingle;
               // }
