@@ -33,7 +33,6 @@ module.exports = {
         length: entities[i].length,
         isSingle: entities[i].single,
         singleInfo: entities[i].albumSingle, // destructure this object
-        singleReleased: entities[i].singleReleaseDate,
         writtenBy: entities[i].writers
       });
     }
