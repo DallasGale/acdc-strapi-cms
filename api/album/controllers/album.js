@@ -317,38 +317,38 @@ module.exports = {
                 singles[i].released = singles[i].details[0].released;
                 // delete singles[i].details[0].released;
 
-                singles[i].releaseYear = singles[i].details[0].releaseYear;
+                // singles[i].releaseYear = singles[i].details[0].releaseYear;
                 // delete singles[i].details[0].releaseYear;
 
-                singles[i].monthReleased = singles[i].details[0].monthReleased;
+                // singles[i].monthReleased = singles[i].details[0].monthReleased;
                 // delete singles[i].details[0].monthReleased;
 
-                singles[i].releasedUS = singles[i].details[0].ReleasedUS;
+                // singles[i].releasedUS = singles[i].details[0].ReleasedUS;
                 // delete singles[i].details[0].ReleasedUS;
 
-                singles[i].releasedUK = singles[i].details[0].ReleasedUK;
+                // singles[i].releasedUK = singles[i].details[0].ReleasedUK;
                 // delete singles[i].details[0].ReleasedUK;
 
-                singles[i].monthReleasedUK =
-                  singles[i].details[0].MonthReleasedUK;
+                // singles[i].monthReleasedUK =
+                //   singles[i].details[0].MonthReleasedUK;
                 // delete singles[i].details[0].MonthReleasedUK;
 
-                singles[i].monthReleasedUS =
-                  singles[i].details[0].MonthReleasedUS;
+                // singles[i].monthReleasedUS =
+                //   singles[i].details[0].MonthReleasedUS;
                 // delete singles[i].details[0].MonthReleasedUS;
 
-                singles[i].releasedYearUK =
-                  singles[i].details[0].releasedYearUK;
+                // singles[i].releasedYearUK =
+                //   singles[i].details[0].releasedYearUK;
                 // delete singles[i].details[0].releasedYearUK;
 
-                singles[i].releasedYearUS =
-                  singles[i].details[0].releasedYearUS;
+                // singles[i].releasedYearUS =
+                //   singles[i].details[0].releasedYearUS;
                 // delete singles[i].details[0].releasedYearUS;
 
-                singles[i].releasedAus = singles[i].details[0].releasedAus;
+                // singles[i].releasedAus = singles[i].details[0].releasedAus;
                 // delete singles[i].details[0].releasedAus;
 
-                singles[i].details = singles[i].details[0].details;
+                // singles[i].details = singles[i].details[0].details;
                 // delete singles[i].details[0].details;
               }
             }
