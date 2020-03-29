@@ -276,30 +276,30 @@ module.exports = {
               singles[i] = allSongs[c];
               delete singles[i].id;
 
-              if (singles[i].albumSingle) {
-                singles[i].details = singles[i].albumSingle;
-                delete singles[i].albumSingle;
-              }
+              // if (singles[i].albumSingle) {
+              //   singles[i].details = singles[i].albumSingle;
+              //   delete singles[i].albumSingle;
+              // }
 
-              if (singles[i].details[0].id) {
-                delete singles[i].details[0].id;
-              }
+              // if (singles[i].details[0].id) {
+              //   delete singles[i].details[0].id;
+              // }
 
-              if (singles[i].single) {
-                delete singles[i].single;
-              }
+              // if (singles[i].single) {
+              //   delete singles[i].single;
+              // }
 
-              if (singles[i].albums) {
-                delete singles[i].albums;
-              }
+              // if (singles[i].albums) {
+              //   delete singles[i].albums;
+              // }
 
-              if (singles[i].isLiveRecording) {
-                delete singles[i].isLiveRecording;
-              }
+              // if (singles[i].isLiveRecording) {
+              //   delete singles[i].isLiveRecording;
+              // }
 
-              if (singles[i].liveAlbum) {
-                delete singles[i].liveAlbum;
-              }
+              // if (singles[i].liveAlbum) {
+              //   delete singles[i].liveAlbum;
+              // }
               // if (singles[i].details[0]) {
               //   singles[i].industryCharts =
               //     singles[i].details[0].industryCharts;
