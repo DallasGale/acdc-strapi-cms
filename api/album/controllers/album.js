@@ -276,7 +276,7 @@ module.exports = {
               singles[i] = allSongs[c];
               delete singles[i].id;
 
-              if (singles[i].details) {
+              if (singles[i]) {
                 singles[i].details = singles[i].albumSingle;
                 delete singles[i].albumSingle;
 
