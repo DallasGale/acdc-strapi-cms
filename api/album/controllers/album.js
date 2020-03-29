@@ -25,11 +25,6 @@ function deleteWritenBy(array) {
   });
 }
 
-function matchAndReplaceSong(songs, song) {
-  const songToMerge = songs.filter(i => i.albumSingle === song);
-  return songToMerge;
-}
-
 function removeDuplicates(array) {
   let a = [];
   array.map(x => {
@@ -273,26 +268,12 @@ module.exports = {
 
       // * Singles...
       if (album_entities[i].singles.length) {
-        // deleteId(album_entities[i].singles[0].songs);
-        // deleteWritenBy(album_entities[i].singles[0].songs);
         singles = album_entities[i].singles[0].songs;
-        // console.log("singles", singles);
-        // console.log("singles", singles);
         const allSongs = song_entities.map(song => song);
-        // console.log("allSongs", allSongs);
-        // const singlesSongs = singles.map(i => i.title);
-        // console.log("singlesSongs", singlesSongs);
-
         singles.map((a, i) => {
           allSongs.map((b, c) => {
             if (b.id === a.id) {
-              // console.log("a", a);
               singles[i] = allSongs[c];
-              // console.log(allSongs[i]);
-              // console.log("b", b);
-              // delete b;
-              // singles[a].pop();
-              // singles[a].push(b);
             }
           });
         });
