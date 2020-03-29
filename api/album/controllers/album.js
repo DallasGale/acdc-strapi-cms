@@ -308,8 +308,8 @@ module.exports = {
                 singles[i].unitsSold = singles[i].details[0].unitsSold;
                 delete singles[i].details[0].unitsSold;
 
-                // singles[i].coverArt = singles[i].details[0].coverArt;
-                // delete singles[i].details[0].coverArt;
+                singles[i].coverArt = singles[i].details[0].coverArt;
+                delete singles[i].details[0].coverArt;
 
                 // singles[i].bSide = singles[i].details[0].bSide;
                 // delete singles[i].details[0].bSide;
