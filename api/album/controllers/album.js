@@ -348,8 +348,8 @@ module.exports = {
                 singles[i].releasedAus = singles[i].details[0].releasedAus;
                 delete singles[i].details[0].releasedAus;
 
-                singles[i].details = singles[i].details[0].details;
-                delete singles[i].details[0].details;
+                // singles[i].details = singles[i].details[0].details;
+                // delete singles[i].details[0].details;
               }
             }
           });
