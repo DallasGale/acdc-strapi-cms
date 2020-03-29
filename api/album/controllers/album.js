@@ -305,8 +305,8 @@ module.exports = {
                   singles[i].details[0].industryCharts;
                 delete singles[i].details[0].industryCharts;
 
-                // singles[i].unitsSold = singles[i].details[0].unitsSold;
-                // delete singles[i].details[0].unitsSold;
+                singles[i].unitsSold = singles[i].details[0].unitsSold;
+                delete singles[i].details[0].unitsSold;
 
                 // singles[i].coverArt = singles[i].details[0].coverArt;
                 // delete singles[i].details[0].coverArt;
