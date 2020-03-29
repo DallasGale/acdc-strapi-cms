@@ -276,7 +276,7 @@ module.exports = {
               singles[i] = allSongs[c];
               // delete singles[i].id;
 
-              if (singles[i].albumSingle) {
+              if (typeof singles[i].albumSingle !== "undefined") {
                 singles[i].monthReleasedUK =
                   singles[i].details[0].MonthReleasedUK;
                 delete singles[i].details[0].MonthReleasedUK;
