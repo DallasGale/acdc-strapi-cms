@@ -272,7 +272,7 @@ module.exports = {
         const allSongs = song_entities.map(song => song);
         singles.map((a, i) => {
           allSongs.map((b, c) => {
-            if (b.id === a.id) {
+            if (b.title === a.title) {
               singles[i] = 0;
               // delete singles[i].id;
 
