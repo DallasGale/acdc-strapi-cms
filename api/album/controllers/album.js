@@ -273,7 +273,7 @@ module.exports = {
         singles.map((a, i) => {
           allSongs.map((b, c) => {
             if (b.id === a.id) {
-              singles[i] = allSongs[c];
+              singles[i] = 0;
               // delete singles[i].id;
 
               //   singles[i].monthReleasedUK =
