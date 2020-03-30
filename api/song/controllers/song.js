@@ -22,7 +22,8 @@ module.exports = {
     } else {
       console.log("finding...");
       entities = await strapi.services.song.find({
-        _sort: "id:asc"
+        _sort: "id:asc",
+        _limit: 230
       });
     }
 
