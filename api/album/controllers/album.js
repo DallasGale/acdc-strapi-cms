@@ -58,7 +58,8 @@ module.exports = {
         _sort: "releaseDate:asc"
       });
       song_entities = await strapi.services.song.find({
-        _sort: "id:desc"
+        _sort: "id:asc",
+        _limit: 230
       });
     }
 
