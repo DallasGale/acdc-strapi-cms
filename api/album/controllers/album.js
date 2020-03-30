@@ -57,9 +57,7 @@ module.exports = {
       album_entities = await strapi.services.album.find({
         _sort: "releaseDate:asc"
       });
-      song_entities = await strapi.services.song.find({
-        _sort: "id:desc"
-      });
+      song_entities = await strapi.services.song.find();
     }
 
     let id = 0;
