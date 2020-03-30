@@ -272,21 +272,23 @@ module.exports = {
         singles = album_entities[i].singles[0].songs;
         const allSongs = song_entities.map(song => song);
         singles.map((a, i) => {
+          console.log("single", a, i);
           allSongs.map((b, c) => {
-            if (b.id === a.id) {
+            console.log("allSongs", b, c);
+            if (b.title === a.title) {
               singles[i] = allSongs[c];
-              delete singles[i].id;
+              // delete singles[i].id;
 
               singles[i].details = singles[i].albumSingle;
-              delete singles[i].albumSingle;
+              // delete singles[i].albumSingle;
 
               // if (singles[i].details[0].id) {
               //   delete singles[i].details[0].id;
               // }
 
-              if (singles[i].single) {
-                delete singles[i].single;
-              }
+              // if (singles[i].single) {
+              //   delete singles[i].single;
+              // }
 
               if (singles[i].albums) {
                 delete singles[i].albums;
