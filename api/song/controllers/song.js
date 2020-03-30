@@ -20,9 +20,7 @@ module.exports = {
       entities = await strapi.services.song.search(ctx.query);
     } else {
       console.log("finding...");
-      entities = await strapi.services.song.find({
-        _sort: "id:asc"
-      });
+      entities = await strapi.services.song.find();
     }
 
     let API_OUTPUT = [];
