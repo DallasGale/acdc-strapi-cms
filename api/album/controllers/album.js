@@ -58,7 +58,7 @@ module.exports = {
         _sort: "releaseDate:asc"
       });
       song_entities = await strapi.services.song.find({
-        _sort: "id:asc"
+        _sort: "id:desc"
       });
     }
 
@@ -272,101 +272,104 @@ module.exports = {
         const allSongs = song_entities.map(song => song);
         singles.map((a, i) => {
           allSongs.map((b, c) => {
-            if (b.title === a.title) {
-              singles[i] = 0;
-              // delete singles[i].id;
+            if (b.id === a.id) {
+              singles[i] = allSongs[c];
+              delete singles[i].id;
 
-              //   singles[i].monthReleasedUK =
-              //     singles[i].details[0].MonthReleasedUK;
-              //   delete singles[i].details[0].MonthReleasedUK;
-
-              //   singles[i].monthReleasedUS =
-              //     singles[i].details[0].MonthReleasedUS;
-              //   delete singles[i].details[0].MonthReleasedUS;
-
-              //   singles[i].releasedYearUK =
-              //     singles[i].details[0].releasedYearUK;
-              //   delete singles[i].details[0].releasedYearUK;
-
-              //   singles[i].releasedYearUS =
-              //     singles[i].details[0].releasedYearUS;
-              //   delete singles[i].details[0].releasedYearUS;
-
-              //   singles[i].releasedAus = singles[i].details[0].releasedAus;
-              //   delete singles[i].details[0].releasedAus;
-              //   singles[i].details = singles[i].albumSingle;
-              //   delete singles[i].albumSingle;
+              singles[i].details = singles[i].albumSingle;
+              delete singles[i].albumSingle;
 
               // if (singles[i].details[0].id) {
               //   delete singles[i].details[0].id;
               // }
 
-              // if (singles[i].single) {
-              //   delete singles[i].single;
-              // }
+              if (singles[i].single) {
+                delete singles[i].single;
+              }
 
-              // if (singles[i].albums) {
-              //   delete singles[i].albums;
-              // }
+              if (singles[i].albums) {
+                delete singles[i].albums;
+              }
 
-              // if (singles[i].isLiveRecording) {
-              //   delete singles[i].isLiveRecording;
-              // }
+              if (singles[i].isLiveRecording) {
+                delete singles[i].isLiveRecording;
+              }
 
-              // if (singles[i].liveAlbum) {
-              //   delete singles[i].liveAlbum;
-              // }
-              // if (singles[i].details[0]) {
-              //   singles[i].industryCharts =
-              //     singles[i].details[0].industryCharts;
-              //   delete singles[i].details[0].industryCharts;
+              if (singles[i].liveAlbum) {
+                delete singles[i].liveAlbum;
+              }
+              if (singles[i].details[0]) {
+                delete singles[i].details[0].id;
 
-              //   singles[i].unitsSold = singles[i].details[0].unitsSold;
-              //   delete singles[i].details[0].unitsSold;
+                singles[i].monthReleasedUK =
+                  singles[i].details[0].MonthReleasedUK;
+                delete singles[i].details[0].MonthReleasedUK;
 
-              //   singles[i].coverArt = singles[i].details[0].coverArt;
-              //   delete singles[i].details[0].coverArt;
+                singles[i].monthReleasedUS =
+                  singles[i].details[0].MonthReleasedUS;
+                delete singles[i].details[0].MonthReleasedUS;
 
-              //   singles[i].bSide = singles[i].details[0].bSide;
-              //   delete singles[i].details[0].bSide;
+                singles[i].releasedYearUK =
+                  singles[i].details[0].releasedYearUK;
+                delete singles[i].details[0].releasedYearUK;
 
-              //   singles[i].released = singles[i].details[0].released;
-              //   delete singles[i].details[0].released;
+                singles[i].releasedYearUS =
+                  singles[i].details[0].releasedYearUS;
+                delete singles[i].details[0].releasedYearUS;
 
-              //   singles[i].releaseYear = singles[i].details[0].releaseYear;
-              //   delete singles[i].details[0].releaseYear;
+                singles[i].releasedAus = singles[i].details[0].releasedAus;
+                delete singles[i].details[0].releasedAus;
 
-              //   singles[i].monthReleased = singles[i].details[0].monthReleased;
-              //   delete singles[i].details[0].monthReleased;
+                singles[i].industryCharts =
+                  singles[i].details[0].industryCharts;
+                delete singles[i].details[0].industryCharts;
 
-              //   singles[i].releasedUS = singles[i].details[0].ReleasedUS;
-              //   delete singles[i].details[0].ReleasedUS;
+                singles[i].unitsSold = singles[i].details[0].unitsSold;
+                delete singles[i].details[0].unitsSold;
 
-              //   singles[i].releasedUK = singles[i].details[0].ReleasedUK;
-              //   delete singles[i].details[0].ReleasedUK;
+                singles[i].coverArt = singles[i].details[0].coverArt;
+                delete singles[i].details[0].coverArt;
 
-              //   singles[i].monthReleasedUK =
-              //     singles[i].details[0].MonthReleasedUK;
-              //   delete singles[i].details[0].MonthReleasedUK;
+                singles[i].bSide = singles[i].details[0].bSide;
+                delete singles[i].details[0].bSide;
 
-              //   singles[i].monthReleasedUS =
-              //     singles[i].details[0].MonthReleasedUS;
-              //   delete singles[i].details[0].MonthReleasedUS;
+                singles[i].released = singles[i].details[0].released;
+                delete singles[i].details[0].released;
 
-              //   singles[i].releasedYearUK =
-              //     singles[i].details[0].releasedYearUK;
-              //   delete singles[i].details[0].releasedYearUK;
+                singles[i].releaseYear = singles[i].details[0].releaseYear;
+                delete singles[i].details[0].releaseYear;
 
-              //   singles[i].releasedYearUS =
-              //     singles[i].details[0].releasedYearUS;
-              //   delete singles[i].details[0].releasedYearUS;
+                singles[i].monthReleased = singles[i].details[0].monthReleased;
+                delete singles[i].details[0].monthReleased;
 
-              //   singles[i].releasedAus = singles[i].details[0].releasedAus;
-              //   delete singles[i].details[0].releasedAus;
+                singles[i].releasedUS = singles[i].details[0].ReleasedUS;
+                delete singles[i].details[0].ReleasedUS;
 
-              //   singles[i].details = singles[i].details[0].details;
-              //   delete singles[i].details[0].details;
-              // }
+                singles[i].releasedUK = singles[i].details[0].ReleasedUK;
+                delete singles[i].details[0].ReleasedUK;
+
+                singles[i].monthReleasedUK =
+                  singles[i].details[0].MonthReleasedUK;
+                delete singles[i].details[0].MonthReleasedUK;
+
+                singles[i].monthReleasedUS =
+                  singles[i].details[0].MonthReleasedUS;
+                delete singles[i].details[0].MonthReleasedUS;
+
+                singles[i].releasedYearUK =
+                  singles[i].details[0].releasedYearUK;
+                delete singles[i].details[0].releasedYearUK;
+
+                singles[i].releasedYearUS =
+                  singles[i].details[0].releasedYearUS;
+                delete singles[i].details[0].releasedYearUS;
+
+                singles[i].releasedAus = singles[i].details[0].releasedAus;
+                delete singles[i].details[0].releasedAus;
+
+                singles[i].details = singles[i].details[0].details;
+                delete singles[i].details[0].details;
+              }
             }
           });
         });
