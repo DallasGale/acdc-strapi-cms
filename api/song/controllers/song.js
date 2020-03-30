@@ -15,12 +15,15 @@ module.exports = {
 
   async find(ctx) {
     let entities;
+
     if (ctx.query._q) {
       console.log("searching...");
       entities = await strapi.services.song.search(ctx.query);
     } else {
       console.log("finding...");
-      entities = await strapi.services.song.find();
+      entities = await strapi.services.song.find({
+        _sort: "id:asc"
+      });
     }
 
     let API_OUTPUT = [];
@@ -38,7 +41,7 @@ module.exports = {
 
     return entities.map(entity => {
       // TODO: When creating the new json response remove most of the 'album' data.. leave 'title'.
-      console.log("API_OUTPUT...", entity);
+      // console.log("API_OUTPUT...", entity);
       return sanitizeEntity(entity, { model: strapi.models.song });
     });
   }
