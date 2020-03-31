@@ -272,45 +272,65 @@ module.exports = {
         singles = album_entities[i].singles[0].songs;
         const allSongs = song_entities.map(song => song);
         singles.map((a, i) => {
+          // console.log("single", a, i);
           allSongs.map((b, c) => {
+            // console.log("allSongs", b, c);
             if (b.title === a.title) {
               singles[i] = allSongs[c];
+              // delete singles[i].id;
 
               singles[i].details = singles[i].albumSingle;
 
-              // if (singles[i].details[0]) {
-              //   singles[i].coverArt = singles[i].details[0].coverArt;
+              if (singles[i].details[0]) {
+                singles[i].coverArt = singles[i].details[0].coverArt;
 
-              //   singles[i].industryCharts =
-              //     singles[i].details[0].industryCharts;
+                singles[i].industryCharts =
+                  singles[i].details[0].industryCharts;
 
-              //   singles[i].unitsSold = singles[i].details[0].unitsSold;
+                singles[i].unitsSold = singles[i].details[0].unitsSold;
 
-              //   singles[i].bSide = singles[i].details[0].bSide;
+                singles[i].bSide = singles[i].details[0].bSide;
 
-              //   singles[i].released = singles[i].details[0].released;
-              //   singles[i].releaseYear = singles[i].details[0].releaseYear;
-              //   singles[i].monthReleased = singles[i].details[0].monthReleased;
+                singles[i].monthReleasedUK =
+                  singles[i].details[0].MonthReleasedUK;
 
-              //   singles[i].releasedAus = singles[i].details[0].releasedAus;
+                singles[i].monthReleasedUS =
+                  singles[i].details[0].MonthReleasedUS;
 
-              //   singles[i].releasedUS = singles[i].details[0].ReleasedUS;
-              //   singles[i].releasedYearUS =
-              //     singles[i].details[0].releasedYearUS;
-              //   singles[i].monthReleasedUS =
-              //     singles[i].details[0].MonthReleasedUS;
+                singles[i].releasedYearUK =
+                  singles[i].details[0].releasedYearUK;
 
-              //   singles[i].releasedUK = singles[i].details[0].ReleasedUK;
-              //   singles[i].releasedYearUK =
-              //     singles[i].details[0].releasedYearUK;
-              //   singles[i].monthReleasedUK =
-              //     singles[i].details[0].MonthReleasedUK;
+                singles[i].releasedYearUS =
+                  singles[i].details[0].releasedYearUS;
 
-              //   singles[i].monthReleasedUK =
-              //     singles[i].details[0].MonthReleasedUK;
+                singles[i].releasedAus = singles[i].details[0].releasedAus;
 
-              //   singles[i].details = singles[i].details[0].details;
-              // }
+                singles[i].released = singles[i].details[0].released;
+
+                singles[i].releaseYear = singles[i].details[0].releaseYear;
+
+                singles[i].monthReleased = singles[i].details[0].monthReleased;
+
+                singles[i].releasedUS = singles[i].details[0].ReleasedUS;
+
+                singles[i].releasedUK = singles[i].details[0].ReleasedUK;
+
+                singles[i].monthReleasedUK =
+                  singles[i].details[0].MonthReleasedUK;
+
+                singles[i].monthReleasedUS =
+                  singles[i].details[0].MonthReleasedUS;
+
+                singles[i].releasedYearUK =
+                  singles[i].details[0].releasedYearUK;
+
+                singles[i].releasedYearUS =
+                  singles[i].details[0].releasedYearUS;
+
+                singles[i].releasedAus = singles[i].details[0].releasedAus;
+
+                singles[i].details = singles[i].details[0].details;
+              }
             }
           });
         });
@@ -387,16 +407,16 @@ module.exports = {
       });
     }
 
-    // album_entities.map(i =>
-    //   i.singles[0].songs.map(i => {
-    //     delete i.albumSingle;
-    //     delete i.isLiveRecording;
-    //     delete i.liveAlbum;
-    //     delete i.liveAlbum;
-    //     delete i.writers;
-    //     delete i.single;
-    //   })
-    // );
+    album_entities.map(i =>
+      i.singles[0].songs.map(i => {
+        delete i.albumSingle;
+        delete i.isLiveRecording;
+        delete i.liveAlbum;
+        delete i.liveAlbum;
+        delete i.writers;
+        delete i.single;
+      })
+    );
 
     // console.log(
     //   "album_entities",
@@ -418,8 +438,8 @@ module.exports = {
     //   song_entities.map(i => i.albumSingle)
     // );
 
-    return API_OUTPUT.map(entity =>
-      sanitizeEntity(entity, { model: strapi.models.album })
-    );
+    return API_OUTPUT.map(entity => {
+      return sanitizeEntity(entity, { model: strapi.models.album });
+    });
   }
 };
