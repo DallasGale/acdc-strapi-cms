@@ -387,16 +387,16 @@ module.exports = {
       });
     }
 
-    album_entities.map(i =>
-      i.singles[0].songs.map(i => {
-        delete i.albumSingle;
-        delete i.isLiveRecording;
-        delete i.liveAlbum;
-        delete i.liveAlbum;
-        delete i.writers;
-        delete i.single;
-      })
-    );
+    // album_entities.map(i =>
+    //   i.singles[0].songs.map(i => {
+    //     delete i.albumSingle;
+    //     delete i.isLiveRecording;
+    //     delete i.liveAlbum;
+    //     delete i.liveAlbum;
+    //     delete i.writers;
+    //     delete i.single;
+    //   })
+    // );
 
     // console.log(
     //   "album_entities",
