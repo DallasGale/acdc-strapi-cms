@@ -277,7 +277,7 @@ module.exports = {
             // console.log("allSongs", b, c);
             if (b.title === a.title) {
               singles[i] = allSongs[c];
-              // delete singles[i].id;
+              delete singles[i].id;
 
               // singles[i].details = singles[i].albumSingle;
               // // delete singles[i].albumSingle;
