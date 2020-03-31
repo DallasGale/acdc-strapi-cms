@@ -435,15 +435,15 @@ module.exports = {
         sideB,
         sideC,
         sideD,
-        singles,
-        artwork: {
-          format: artwork.ext,
-          size: artwork.size,
-          url: artwork.url,
-          source: artwork.source,
-          version: artwork.version,
-          artist: artwork.artist
-        }
+        singles
+        // artwork: {
+        //   format: artwork.ext,
+        //   size: artwork.size,
+        //   url: artwork.url,
+        //   source: artwork.source,
+        //   version: artwork.version,
+        //   artist: artwork.artist
+        // }
       });
     }
 
