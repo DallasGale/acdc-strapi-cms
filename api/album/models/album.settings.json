@@ -60,6 +60,11 @@
     "studios": {
       "collection": "studio"
     },
+    "coverArt": {
+      "type": "component",
+      "repeatable": true,
+      "component": "artwork.artwork"
+    },
     "publisher": {
       "model": "publisher"
     },
