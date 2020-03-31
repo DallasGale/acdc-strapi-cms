@@ -460,7 +460,7 @@ module.exports = {
     //   "bSideTracks",
     //   album_entities.map(i => i.bSideTracks.map(i => i.song))
     // );
-    // console.log("song_entities", song_entities);
+    console.log("song_entities");
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
