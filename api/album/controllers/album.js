@@ -381,36 +381,36 @@ module.exports = {
       }
 
       // * Artwork image...
-      if (typeof album_entities[i].coverArt.image !== "undefined") {
-        // console.log("album_entities[i].coverArt.image", album_entities[i].coverArt.image);
+      // if (typeof album_entities[i].coverArt.image !== "undefined") {
+      //   // console.log("album_entities[i].coverArt.image", album_entities[i].coverArt.image);
 
-        artwork.format = album_entities[i].coverArt.image.ext;
-        artwork.url = album_entities[i].coverArt.image.url;
-        artwork.size = album_entities[i].coverArt.image.size;
-      } else {
-        artwork.format = null;
-        artwork.url = null;
-        artwork.size = null;
-      }
+      //   artwork.format = album_entities[i].coverArt.image.ext;
+      //   artwork.url = album_entities[i].coverArt.image.url;
+      //   artwork.size = album_entities[i].coverArt.image.size;
+      // } else {
+      //   artwork.format = null;
+      //   artwork.url = null;
+      //   artwork.size = null;
+      // }
 
-      // * Artwork details...
-      if (album_entities[i].coverArt.length) {
-        if (album_entities[i].coverArt.isEuropean) {
-          artwork.version = "eu";
-        } else if (album_entities[i].coverArt.isNorthAmerican) {
-          artwork.version = "us";
-        } else if (album_entities[i].coverArt.isAustralian) {
-          artwork.version = "au";
-        } else {
-          artwork.version = null;
-        }
+      // // * Artwork details...
+      // if (album_entities[i].coverArt.length) {
+      //   if (album_entities[i].coverArt.isEuropean) {
+      //     artwork.version = "eu";
+      //   } else if (album_entities[i].coverArt.isNorthAmerican) {
+      //     artwork.version = "us";
+      //   } else if (album_entities[i].coverArt.isAustralian) {
+      //     artwork.version = "au";
+      //   } else {
+      //     artwork.version = null;
+      //   }
 
-        artwork.source = album_entities[i].coverArt.source;
-        artwork.artist = album_entities[i].coverArt.artist;
-      } else {
-        artwork.source = null;
-        artwork.artist = null;
-      }
+      //   artwork.source = album_entities[i].coverArt.source;
+      //   artwork.artist = album_entities[i].coverArt.artist;
+      // } else {
+      //   artwork.source = null;
+      //   artwork.artist = null;
+      // }
 
       API_OUTPUT.push({
         id,
