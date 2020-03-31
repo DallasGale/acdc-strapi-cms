@@ -462,10 +462,10 @@ module.exports = {
     // );
     // console.log("song_entities", song_entities);
 
-    // console.log(
-    //   "api",
-    //   song_entities.map(i => i.albumSingle)
-    // );
+    console.log(
+      "api",
+      song_entities.map(i => i.albumSingle)
+    );
 
     return API_OUTPUT.map(entity => {
       return sanitizeEntity(entity, { model: strapi.models.album });
