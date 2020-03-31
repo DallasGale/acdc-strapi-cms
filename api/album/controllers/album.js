@@ -268,57 +268,117 @@ module.exports = {
       }
 
       // * Singles...
-      if (album_entities[i].singles.length) {
-        singles = album_entities[i].singles[0].songs;
-        const allSongs = song_entities.map(song => song);
-        singles.map((a, i) => {
-          allSongs.map((b, c) => {
-            if (b.title === a.title) {
-              singles[i] = allSongs[c];
+      // if (album_entities[i].singles.length) {
+      //   singles = album_entities[i].singles[0].songs;
+      //   const allSongs = song_entities.map(song => song);
+      //   singles.map((a, i) => {
+      //     console.log("single", a, i);
+      //     allSongs.map((b, c) => {
+      //       console.log("allSongs", b, c);
+      //       if (b.title === a.title) {
+      //         singles[i] = allSongs[c];
+      //         // delete singles[i].id;
 
-              singles[i].details = singles[i].albumSingle;
+      //         singles[i].details = singles[i].albumSingle;
+      //         // delete singles[i].albumSingle;
 
-              if (singles[i].details[0]) {
-                singles[i].coverArt = singles[i].details[0].coverArt;
+      //         // if (singles[i].details[0].id) {
+      //         //   delete singles[i].details[0].id;
+      //         // }
 
-                singles[i].industryCharts =
-                  singles[i].details[0].industryCharts;
+      //         // if (singles[i].single) {
+      //         //   delete singles[i].single;
+      //         // }
 
-                singles[i].unitsSold = singles[i].details[0].unitsSold;
+      //         if (singles[i].albums) {
+      //           delete singles[i].albums;
+      //         }
 
-                singles[i].bSide = singles[i].details[0].bSide;
+      //         if (singles[i].isLiveRecording) {
+      //           delete singles[i].isLiveRecording;
+      //         }
 
-                singles[i].released = singles[i].details[0].released;
-                singles[i].releaseYear = singles[i].details[0].releaseYear;
-                singles[i].monthReleased = singles[i].details[0].monthReleased;
+      //         if (singles[i].liveAlbum) {
+      //           delete singles[i].liveAlbum;
+      //         }
+      //         if (singles[i].details[0]) {
+      //           // delete singles[i].details[0].id;
 
-                singles[i].releasedAus = singles[i].details[0].releasedAus;
+      //           singles[i].monthReleasedUK =
+      //             singles[i].details[0].MonthReleasedUK;
+      //           // delete singles[i].details[0].MonthReleasedUK;
 
-                singles[i].releasedUS = singles[i].details[0].ReleasedUS;
-                singles[i].releasedYearUS =
-                  singles[i].details[0].releasedYearUS;
-                singles[i].monthReleasedUS =
-                  singles[i].details[0].MonthReleasedUS;
+      //           singles[i].monthReleasedUS =
+      //             singles[i].details[0].MonthReleasedUS;
+      //           // delete singles[i].details[0].MonthReleasedUS;
 
-                singles[i].releasedUK = singles[i].details[0].ReleasedUK;
-                singles[i].releasedYearUK =
-                  singles[i].details[0].releasedYearUK;
-                singles[i].monthReleasedUK =
-                  singles[i].details[0].MonthReleasedUK;
+      //           singles[i].releasedYearUK =
+      //             singles[i].details[0].releasedYearUK;
+      //           // delete singles[i].details[0].releasedYearUK;
 
-                singles[i].monthReleasedUK =
-                  singles[i].details[0].MonthReleasedUK;
+      //           singles[i].releasedYearUS =
+      //             singles[i].details[0].releasedYearUS;
+      //           // delete singles[i].details[0].releasedYearUS;
 
-                singles[i].details = singles[i].details[0].details;
-              }
-            }
-          });
-        });
-      } else {
-        singles = [];
-      }
+      //           singles[i].releasedAus = singles[i].details[0].releasedAus;
+      //           // delete singles[i].details[0].releasedAus;
 
-      // singles.map(i => delete i);
+      //           singles[i].industryCharts =
+      //             singles[i].details[0].industryCharts;
+      //           // delete singles[i].details[0].industryCharts;
+
+      //           singles[i].unitsSold = singles[i].details[0].unitsSold;
+      //           // delete singles[i].details[0].unitsSold;
+
+      //           singles[i].coverArt = singles[i].details[0].coverArt;
+      //           // delete singles[i].details[0].coverArt;
+
+      //           singles[i].bSide = singles[i].details[0].bSide;
+      //           // delete singles[i].details[0].bSide;
+
+      //           singles[i].released = singles[i].details[0].released;
+      //           // delete singles[i].details[0].released;
+
+      //           singles[i].releaseYear = singles[i].details[0].releaseYear;
+      //           // delete singles[i].details[0].releaseYear;
+
+      //           singles[i].monthReleased = singles[i].details[0].monthReleased;
+      //           // delete singles[i].details[0].monthReleased;
+
+      //           singles[i].releasedUS = singles[i].details[0].ReleasedUS;
+      //           // delete singles[i].details[0].ReleasedUS;
+
+      //           singles[i].releasedUK = singles[i].details[0].ReleasedUK;
+      //           // delete singles[i].details[0].ReleasedUK;
+
+      //           singles[i].monthReleasedUK =
+      //             singles[i].details[0].MonthReleasedUK;
+      //           // delete singles[i].details[0].MonthReleasedUK;
+
+      //           singles[i].monthReleasedUS =
+      //             singles[i].details[0].MonthReleasedUS;
+      //           // delete singles[i].details[0].MonthReleasedUS;
+
+      //           singles[i].releasedYearUK =
+      //             singles[i].details[0].releasedYearUK;
+      //           // delete singles[i].details[0].releasedYearUK;
+
+      //           singles[i].releasedYearUS =
+      //             singles[i].details[0].releasedYearUS;
+      //           // delete singles[i].details[0].releasedYearUS;
+
+      //           singles[i].releasedAus = singles[i].details[0].releasedAus;
+      //           // delete singles[i].details[0].releasedAus;
+
+      //           singles[i].details = singles[i].details[0].details;
+      //           // delete singles[i].details[0].details;
+      //         }
+      //       }
+      //     });
+      //   });
+      // } else {
+      //   singles = [];
+      // }
 
       // * Artwork image...
       if (typeof album_entities[i].coverArt.image !== "undefined") {
@@ -387,16 +447,6 @@ module.exports = {
       });
     }
 
-    album_entities.map(i =>
-      i.singles[0].songs.map(i => {
-        delete i.albumSingle;
-        delete i.isLiveRecording;
-        delete i.liveAlbum;
-        delete i.liveAlbum;
-        delete i.writers;
-        delete i.single;
-      })
-    );
     // console.log(
     //   "album_entities",
     //   API_OUTPUT.map(i => i.sideA[0].songList.map(i => i))
